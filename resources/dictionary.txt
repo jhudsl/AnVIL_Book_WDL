@@ -1,3 +1,4 @@
+AnVIL
 BIPOC
 Bloomberg
 Datatrail
@@ -9,6 +10,8 @@ Leanpub
 Markua
 mentorship
 NCI
+NHGRI
+preprint
 UE
 UE5
 underserved
