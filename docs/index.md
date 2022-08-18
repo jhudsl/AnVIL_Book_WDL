@@ -1,13 +1,13 @@
 ---
 title: "AnVIL Book Name "
-date: "August 15, 2022"
+date: "August 18, 2022"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 description: "Description about Course/Book."
-favicon: assets/anvil_favicon.ico
+favicon: assets/AnVIL_style/anvil_favicon.ico
 output:
     bookdown::word_document2:
       toc: true
