@@ -1,15 +1,17 @@
 ---
-title: "GDSCN: Course Name "
-date: "`r format(Sys.time(), '%B, %Y')`"
+title: "AnVIL Book Name "
+date: "`r format(Sys.time(), '%B %d, %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 description: "Description about Course/Book."
-favicon: assets/GDSCN_style/gdscn_favicon.ico
+favicon: assets/AnVIL_style/anvil_favicon.ico
+output:
+    bookdown::word_document2:
+      toc: true
 ---
-
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
@@ -18,6 +20,6 @@ knitr::write_bib(c(
 ), "packages.bib")
 ```
 
-# About this Course {-}
+# About this Book {-}
 
-This course is part of a series of courses for the [The Genomic Data Science Community Network (GDSCN)](https://www.gdscn.org/home) is a group of educators gathered with the aim to bring genomic data science education to students at diverse institutions. 
+This book is part of a series of books for the Genomic Data Science Analysis, Visualization, and Informatics Lab-space (AnVIL) of the National Human Genome Research Institute (NHGRI). Learn more about AnVIL by visiting `https://anvilproject.org` or reading the [article in Cell Genomics](https://www.sciencedirect.com/science/article/pii/S2666979X21001063).

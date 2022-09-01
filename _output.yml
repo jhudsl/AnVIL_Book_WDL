@@ -1,14 +1,14 @@
 bookdown::gitbook:
-  css: assets/GDSCN_style/style.css
+  css: assets/AnVIL_style/style.css
   includes:
-    before_body: assets/GDSCN_style/big-image_gdscn.html
-    after_body: assets/GDSCN_style/footer.html
+    before_body: assets/AnVIL_style/big-image_anvil.html
+    after_body: assets/AnVIL_style/footer.html
   highlight: tango
   config:
     toc:
       collapse: section
       before: |
-       <a href="https://www.gdscn.org/" target="_blank"><img src="assets/GDSCN_style/logo-gdscn.png" style="width: 80%; padding-left: 15px; padding-top: 8px;"</a>
+       <a href="https://anvilproject.org/" target="_blank"><img src="assets/AnVIL_style/logo-anvil.png" style="width: 80%; padding-left: 15px; padding-top: 8px;"</a>
       after: |
        <p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
        <p style="text-align:center;"> <a href="http://jhudatascience.org/"> The Johns Hopkins Data Science Lab </a></p>
