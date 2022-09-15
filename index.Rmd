@@ -30,7 +30,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1o2XnuMbqWVLf4Xrs
 - Customize your Docker environment
 - Join the conversation
 
-## Pre-Requisites {-}
+## Prerequisites {-}
 
 ::: {.notice}
 _Resources_  
