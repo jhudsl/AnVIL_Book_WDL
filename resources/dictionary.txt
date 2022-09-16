@@ -1,4 +1,5 @@
 AnVIL
+Bioinformática
 BIPOC
 Bloomberg
 Datatrail
@@ -12,8 +13,10 @@ mentorship
 NCI
 NHGRI
 preprint
+reproducibility
 UE
 UE5
+UFMG
 underserved
 WDL
 www
