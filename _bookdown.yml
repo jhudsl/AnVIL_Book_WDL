@@ -1,9 +1,13 @@
-book_filename: "Course_Name"
+book_filename: "WDL Workflows"
 chapter_name: "Chapter "
-repo: https://github.com/jhudsl/DaSL_Course_Template_Bookdown/
+repo: https://github.com/jhudsl/AnVIL_Book_WDL/
 rmd_files: ["index.Rmd",
-            "01-intro.Rmd",
-            "02-chapter_of_course.Rmd",
+            "01-introduction.Rmd",
+            "02-run-workflow.Rmd",
+            "03-write-workflow.Rmd",
+            "04-localize-files.Rmd",
+            "05-customize-docker.Rmd",
+            "06-join-discourse.Rmd",
             "About.Rmd",
             "References.Rmd"]
 new_session: yes

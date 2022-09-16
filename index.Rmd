@@ -1,5 +1,5 @@
 ---
-title: "AnVIL Book Name "
+title: "WDL Workflows"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -13,13 +13,33 @@ output:
       toc: true
 ---
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), "bookdown", "knitr", "rmarkdown"
-), "packages.bib")
+# Overview {-}
+
+This book introduces WDL Workflows on AnVIL.
+
+```{r, echo=FALSE}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ/edit#slide=id.g1397c25e58c_0_2")
 ```
 
-# About this Book {-}
+## Skills Level {-}
 
-This book is part of a series of books for the Genomic Data Science Analysis, Visualization, and Informatics Lab-space (AnVIL) of the National Human Genome Research Institute (NHGRI). Learn more about AnVIL by visiting `https://anvilproject.org` or reading the [article in Cell Genomics](https://www.sciencedirect.com/science/article/pii/S2666979X21001063).
+::: {.notice}
+_Genetics_  
+**Novice**: No genetics knowledge needed
+
+_Programming skills_  
+**Novice**: No programming experience needed
+:::
+
+## Learning Objectives {-}
+
+- Understand when WDL Workflows are the right tool
+- Run a Workflow on AnVIL
+- Write a WDL using Broad Methods Repository
+- Bring your own data to analyze
+- Customize your Docker environment
+- Join the conversation
+
+## AnVIL Collection {-}
+
+Please check out our full collection of AnVIL resources below!
