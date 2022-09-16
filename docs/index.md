@@ -1,6 +1,6 @@
 ---
-title: "AnVIL Book Name "
-date: "September 01, 2022"
+title: "WDL Workflows"
+date: "September 16, 2022"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -13,8 +13,31 @@ output:
       toc: true
 ---
 
+# Overview {-}
 
+This book introduces WDL Workflows on AnVIL.
 
-# About this Book {-}
+![](index_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_2.png)<!-- -->
 
-This book is part of a series of books for the Genomic Data Science Analysis, Visualization, and Informatics Lab-space (AnVIL) of the National Human Genome Research Institute (NHGRI). Learn more about AnVIL by visiting `https://anvilproject.org` or reading the [article in Cell Genomics](https://www.sciencedirect.com/science/article/pii/S2666979X21001063).
+## Skills Level {-}
+
+::: {.notice}
+_Genetics_  
+**Novice**: No genetics knowledge needed
+
+_Programming skills_  
+**Novice**: No programming experience needed
+:::
+
+## Learning Objectives {-}
+
+- Understand when WDL Workflows are the right tool
+- Run a Workflow on AnVIL
+- Write a WDL using Broad Methods Repository
+- Bring your own data to analyze
+- Customize your Docker environment
+- Join the conversation
+
+## AnVIL Collection {-}
+
+Please check out our full collection of AnVIL resources below!
