@@ -15,7 +15,7 @@ output:
 
 # Overview {-}
 
-This book introduces WDL Workflows on AnVIL.
+This book introduces WDL Workflows on AnVIL.  After introducing several concepts, including basic WDL syntax, we present hands-on exercises to run a workflow, write a WDL, localize a file, customize a Docker image, and join the Discourse.  No local software installation is required as each exercise leverages web-based resources.
 
 ```{r, echo=FALSE}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ/edit#slide=id.g1397c25e58c_0_2")
@@ -43,3 +43,16 @@ _Programming skills_
 ## AnVIL Collection {-}
 
 Please check out our full collection of AnVIL resources below!
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+source("scripts/anvil_repo_table.R")
+# Add below any repositories that should not be added
+exclude = c(
+  "anvil-intro",
+  "AnVIL_Template",
+  "AnVIL_Template_Test",
+  "GDSCN_bookdown_style"
+)
+# Create table for AnVIL repos detected through the API
+knitr::kable(make_anvil_repo_table(exclude), format = "html")
+```
