@@ -1,0 +1,146 @@
+# Write WDL
+
+Now that you've successfully run a Workflow on AnVIL, this tutorial demonstrates how you can create and edit a WDL using the [Broad Methods Repository](https://portal.firecloud.org/?return=anvil#methods).
+While this "legacy" Methods repository does not have many of the features present in the open-source [Dockstore](https://anvilproject.org/overview#platform-interoperability) platform, it does offer a convenient web-based editor for demonstration purposes.
+This material is adapted from the [WDL 101 Workshop](https://support.terra.bio/hc/en-us/articles/8693717360411); 
+you can read about other ways the Broad Methods Repository can be used in [this Terra Support article](https://support.terra.bio/hc/en-us/articles/360031366091).
+
+**Learning Objectives**
+
+1. Access Broad Methods Repository
+1. Write WDL101 Training Example
+1. Export to Terra and run
+
+## Access Broad Methods Repository
+
+Let's start by navigating to the WDL-puzzles workspace that we previously cloned.  Please double check your workspace name to ensure that this is the copy that you made rather than the original as you will not be able to use the original workspace to create a new WDL or run a workflow.
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_185.png)<!-- -->
+
+Once you've double checked that you are in a workspace that you can modify and compute, click on the Workflows tab.
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_27.png)<!-- -->
+
+Click on the Find a Workflow card.
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_1.png)<!-- -->
+
+Select the Broad Methods Repository option.
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_6.png)<!-- -->
+
+Click Create New Method.
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_11.png)<!-- -->
+
+Add a namespace to the first text box to organize your WDLs.
+Your username (prepended with your lab name) is a reasonable namespace as this must be unique across all of Broad Methods Repository.
+Afterwards, add a name such as `wdl101` to name your WDL.
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_16.png)<!-- -->
+
+## Write WDL101 Training Example
+
+Let's now create a basic WDL!
+This simple "Hello, World!" style workflow will take as input a string, call a single task, and save the output of that task to your workspace bucket.
+The task that is called will run the [Bash](https://swcarpentry.github.io/shell-novice/01-intro/index.html) `echo` command to print the input string to `stdout`.
+
+First note that we are using the [WDL 1.0 spec](https://github.com/openwdl/wdl/tree/main/versions).
+
+```
+version 1.0
+```
+
+Let's add a workflow `HelloInput` that calls a single task `WriteGreeting`.
+
+```
+version 1.0
+workflow HelloInput {
+}
+
+task WriteGreeting{
+}
+```
+
+To create the task, we will define  `input`, `command`, `output`, and `runtime` blocks.
+Note that the command block is defined as a "[here doc](https://en.wikipedia.org/wiki/Here_document)" and prints the input string to `stdout`.  
+
+```
+version 1.0
+workflow HelloInput {
+}
+
+task WriteGreeting {
+  input {
+    String name_for_greeting
+  }
+  command <<<
+    echo 'hello ~{name_for_greeting}!'
+  >>>
+  output {
+    File Greeting_output = stdout()
+  }
+  runtime {
+    docker: 'ubuntu:latest'
+  }
+}
+```
+
+Putting it all together, we now create the workflow by defining an input string stored in a variable named `name_input`, calling the task by passing `name_input` to `name_for_greeting`, and storing what is returned by the task in a File labeled `final_output`. 
+
+```
+version 1.0
+workflow HelloInput {
+  input {
+    String name_input
+  }
+  call WriteGreeting {
+    input: 
+      name_for_greeting = name_input
+  }
+  output {
+    File final_output = WriteGreeting.Greeting_output
+  }
+}
+
+task WriteGreeting {
+  input {
+    String name_for_greeting
+  }
+  command <<<
+    echo 'hello ~{name_for_greeting}!'
+  >>>
+  output {
+    File Greeting_output = stdout()
+  }
+  runtime {
+    docker: 'ubuntu:latest'
+  }
+}
+```
+
+## Export to AnVIL and run
+
+Once your WDL is complete, click on Upload.
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_40.png)<!-- -->
+
+Now click on Export to Workspace.
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_45.png)<!-- -->
+
+Select Use Blank Configuration.
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_50.png)<!-- -->
+
+Select a Destination Workspace such as your clone of WDL-puzzles.  Afterwards, click Export to Workspace.
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_55.png)<!-- -->
+
+Lastly, configure your Workflow as your did previously (e.g. inputs defined by file paths, name in double quotes), click Save, and then click Run Analysis.
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_60.png)<!-- -->
+
+Voila!  Here's what you hopefully see after successfully running your WDL101 Training Example !
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_65.png)<!-- -->

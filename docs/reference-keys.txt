@@ -1,6 +1,9 @@
 introduction
 run-workflow
-write-workflow
+write-wdl
+access-broad-methods-repository
+write-wdl101-training-example
+export-to-anvil-and-run
 localize-files
 customize-docker
 join-discourse
