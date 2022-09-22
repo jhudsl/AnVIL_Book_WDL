@@ -1,7 +1,7 @@
 # Write WDL
 
-Now that you've successfully run a Workflow on AnVIL, this tutorial demonstrates how you can create and edit a WDL using the [Broad Methods Repository](https://portal.firecloud.org/?return=anvil#methods).  
-While this "legacy" Methods repository does not have many of the features present in the open-source [Dockstore](https://anvilproject.org/overview#platform-interoperability) platform, it does offer a convenient web-based editor for demonstration purposes.  
+Now that you've successfully run a Workflow on AnVIL, this tutorial demonstrates how you can create and edit a WDL using the [Broad Methods Repository](https://portal.firecloud.org/?return=anvil#methods).
+While this "legacy" Methods repository does not have many of the features present in the open-source [Dockstore](https://anvilproject.org/overview#platform-interoperability) platform, it does offer a convenient web-based editor for demonstration purposes.
 This material is adapted from the [WDL 101 Workshop](https://support.terra.bio/hc/en-us/articles/8693717360411); 
 you can read about other ways the Broad Methods Repository can be used in [this Terra Support article](https://support.terra.bio/hc/en-us/articles/360031366091).
 
@@ -43,8 +43,8 @@ Click Create New Method.
 ottrpal::include_slide("https://docs.google.com/presentation/d/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ/edit#slide=id.g139bf26eaed_0_11")
 ```
 
-Add a namespace to the first text box to organize your WDLs.  
-Your username (prepended with your lab name) is a reasonable namespace as this must be unique across all of Broad Methods Repository.  
+Add a namespace to the first text box to organize your WDLs.
+Your username (prepended with your lab name) is a reasonable namespace as this must be unique across all of Broad Methods Repository.
 Afterwards, add a name such as `wdl101` to name your WDL.
 
 ```{r, echo=FALSE}
@@ -53,7 +53,9 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1o2XnuMbqWVLf4Xrs
 
 ## Write WDL101 Training Example
 
-Let's now create a basic WDL!  This simple "Hello, World!" style workflow will take as input a string, call a single task, and save the output of that task to your workspace bucket.  The task that is called will run the Bash `echo` command to print the input string to `stdout`.
+Let's now create a basic WDL!
+This simple "Hello, World!" style workflow will take as input a string, call a single task, and save the output of that task to your workspace bucket.
+The task that is called will run the [Bash](https://swcarpentry.github.io/shell-novice/01-intro/index.html) `echo` command to print the input string to `stdout`.
 
 First note that we are using the [WDL 1.0 spec](https://github.com/openwdl/wdl/tree/main/versions).
 
@@ -72,30 +74,31 @@ task WriteGreeting{
 }
 ```
 
-Now let's define an input string for the workflow and store it in a variable named `name_input`.  
-That information will be used when calling the task `WriteGreeting` by passing `name_input` to `name_for_greeting`.  
-Lastly, the workflow will store what is returned by the task in a File labeled `final_output`.
+To create the task, we will define  `input`, `command`, `output`, and `runtime` blocks.
+Note that the command block is defined as a "[here doc](https://en.wikipedia.org/wiki/Here_document)" and prints the input string to `stdout`.  
 
 ```
 version 1.0
 workflow HelloInput {
-  input {
-    String name_input
-  }
-  call WriteGreeting {
-    input: 
-      name_for_greeting = name_input
-  }
-  output {
-    File final_output = WriteGreeting.Greeting_output
-  }
 }
 
 task WriteGreeting {
+  input {
+    String name_for_greeting
+  }
+  command <<<
+    echo 'hello ~{name_for_greeting}!'
+  >>>
+  output {
+    File Greeting_output = stdout()
+  }
+  runtime {
+    docker: 'ubuntu:latest'
+  }
 }
 ```
 
-Putting it all together, we now define `name_for_greeting`, the `command`,  `Greeting_output`, and `docker` for the task.
+Putting it all together, we now create the workflow by defining an input string stored in a variable named `name_input`, calling the task by passing `name_input` to `name_for_greeting`, and storing what is returned by the task in a File labeled `final_output`. 
 
 ```
 version 1.0
