@@ -1,1 +1,110 @@
 # Customize Docker
+
+Having run a workflow, written a WDL, and localized a file, let's now build a custom Docker image.
+This tutorial demonstrates how to build a Docker image that contains [SAMtools](https://pubmed.gov/19505943) so that we can calculate [idxstats](http://www.htslib.org/doc/samtools-idxstats.html) on a small .bam file.
+We will use the GitHub Action [build-and-push-docker-images](https://github.com/marketplace/actions/build-and-push-docker-images) so that you do not need to have Docker installed locally.
+More information about making Docker images can be found in [this Terra Support article](https://support.terra.bio/hc/en-us/articles/360024737591).
+
+**Learning Objectives**
+
+1. Configure GitHub Actions
+1. Build Docker image
+1. Create idxstats WDL
+1. Run idxstats workflow
+
+## Prerequisites
+
+::: {.notice}
+**GitHub**: [Create an account](https://github.com/signup) to build Docker images using GitHub Actions
+
+**Docker Hub**: [Create an account](https://hub.docker.com/signup) to publish Docker images that AnVIL can access
+:::
+
+## Configure GitHub Actions
+
+The GitHub Action [build-and-push-docker-images](https://github.com/marketplace/actions/build-and-push-docker-images) provides a Cloud-based solution to building a Docker image and pushing it to [Docker Hub](https://hub.docker.com).
+We will start with a repository created for the ITN course [Intro to Reproducibility in Cancer Informatics](https://jhudatascience.org/Reproducibility_in_Cancer_Informatics) that has this GitHub Action configured.
+
+First, fork the [reproducible-R-example](https://github.com/jhudsl/reproducible-R-example) repository.
+
+```{r, echo=FALSE}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ/edit#slide=id.g1397c25e58c_0_177")
+```
+
+Your new repository must be configured with the proper credentials (referred to as [Actions secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets)) to push an image to Docker Hub.  Follow the [OTTR Project instructions](https://www.ottrproject.org/customize-docker.html#Set_Dockerhub_related_secrets)) to set `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN`.
+
+```{r, echo=FALSE}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ/edit#slide=id.g158d610a26d_0_3")
+```
+
+Update the `.github/workflows/docker-management.yml` file with your Docker Hub username and repository.  For example, change `jhudsl/reproducible-r` to `my_username/my_repository`.  Note that you need to change this on both line 53 and line 71.
+
+```{r, echo=FALSE}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ/edit#slide=id.g158d610a26d_0_8")
+```
+
+## Build Docker image
+
+For a base image, we'll start with [condaforge/mambaforge](https://github.com/conda-forge/miniforge-images) which is maintained by condaforge and provides conda on top of ubuntu-20.04.  Replace the contents of the `docker/Dockerfile` file with the following to install [SAMtools via bioconda](https://anaconda.org/bioconda/samtools).
+
+```
+FROM condaforge/mambaforge
+
+RUN conda config \
+    --add channels defaults \
+    --add channels bioconda \
+    --add channels conda-forge
+
+RUN conda install -y samtools
+```
+
+Run the GitHub Action by navigating to the Actions tab, selecting Docker management, and clicking on Run workflow.  Note that you must change `Push to Dockerhub?` to true.
+
+```{r, echo=FALSE}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ/edit#slide=id.g158d610a26d_0_20")
+```
+
+::: {.warning}
+You **must** change `Push to Dockerhub?` to true for your Docker image to be pushed to Docker Hub.
+:::
+
+## Create idxstats WDL
+
+```
+version 1.0
+workflow samtoolsIdxstats {
+  input {
+    File bamfile
+  }
+  call idxstats {
+    input: 
+      bamfile = bamfile
+  }
+  output {
+    File results = idxstats.idxstats
+  }
+}
+
+task idxstats {
+  input {
+    File bamfile
+  }
+  command <<<
+    samtools index ~{bamfile}
+    samtools idxstats ~{bamfile} > idxstats.txt
+  >>>
+  output {
+    File idxstats = "idxstats.txt"
+  }
+  runtime {
+    docker: 'cutsort/test'
+  }
+}
+```
+
+## Run idxstats workflow
+
+```{r, echo=FALSE}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ/edit#slide=id.g158d610a26d_0_26")
+```
+
