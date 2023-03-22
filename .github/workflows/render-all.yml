@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
         # Use the yaml-env-action action.
       - name: Load environment from YAML
@@ -42,14 +42,14 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           token: ${{ secrets.GH_PAT }}
 
       - name: Login as jhudsl-robot
         run: |
-
+          git config --system --add safe.directory "$GITHUB_WORKSPACE"
           git config --local user.email "itcrtrainingnetwork@gmail.com"
           git config --local user.name "jhudsl-robot"
 
@@ -63,6 +63,21 @@ jobs:
         run: |
           Rscript -e "bookdown::render_book('index.Rmd', output_format = 'all');
           file.copy(from = 'assets', to = 'docs/assets', overwrite = TRUE)"
+          
+      # Render a student guide if specified. This is a bit clunky because 
+      # Bookdown does not work well if the files aren't named as such in the 
+      # root directory
+      - name: Run student guide render
+        if: ${{needs.yaml-check.outputs.render_student_guide == 'yes'}}
+        id: student_guide
+        run: |
+          mkdir tmp1
+          mv _bookdown.yml _output.yml tmp1
+          mv student-guide/_bookdown.yml student-guide/_output.yml .
+          Rscript -e "bookdown::render_book('index.Rmd', output_format = 'all')"
+          mv _bookdown.yml _output.yml student-guide
+          mv tmp1/_bookdown.yml tmp1/_output.yml .
+          rm -r tmp1
 
       # This checks on the steps before it and makes sure that they completed.
       # If the renders didn't complete we don't want to commit the file changes
@@ -93,13 +108,14 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           token: ${{ secrets.GH_PAT }}
 
       - name: Login as jhudsl-robot
         run: |
+          git config --system --add safe.directory "$GITHUB_WORKSPACE"
           git config --local user.email "itcrtrainingnetwork@gmail.com"
           git config --local user.name "jhudsl-robot"
 
@@ -130,13 +146,14 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           token: ${{ secrets.GH_PAT }}
 
       - name: Login as jhudsl-robot
         run: |
+          git config --system --add safe.directory "$GITHUB_WORKSPACE"
           git config --local user.email "itcrtrainingnetwork@gmail.com"
           git config --local user.name "jhudsl-robot"
 
@@ -178,9 +195,11 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
+          mkdir -p manuscript
           git remote set-url origin https://${GH_PAT}@github.com/${GITHUB_REPOSITORY}
           git add --force manuscript/*
           git add --force resources/*
+          git add --force docs/*
           git commit -m 'Render Leanpub' || echo "No changes to commit"
           git pull --allow-unrelated-histories --strategy-option=ours
           git push origin main || echo "No changes to push"
@@ -195,13 +214,14 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           token: ${{ secrets.GH_PAT }}
 
       - name: Login as jhudsl-robot
         run: |
+          git config --system --add safe.directory "$GITHUB_WORKSPACE"
           git config --local user.email "itcrtrainingnetwork@gmail.com"
           git config --local user.name "jhudsl-robot"
 
@@ -217,7 +237,9 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git remote set-url origin https://${GH_PAT}@github.com/${GITHUB_REPOSITORY}
-          git add --force .
+          git add --force manuscript/*
+          git add --force resources/*
+          git add --force docs/*
           git commit -m 'Render Coursera quizzes' || echo "No changes to commit"
           git pull --allow-unrelated-histories --strategy-option=ours
           git push origin main || echo "No changes to push"
