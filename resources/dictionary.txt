@@ -7,7 +7,11 @@ Bloomberg
 conda
 condaforge
 Datatrail
+Dockerfile
+DockerHub
 Dockstore
+GATK
+GitHub
 idxstats
 impactful
 ITCR
@@ -30,3 +34,4 @@ UFMG
 underserved
 WDL
 www
+YAML
