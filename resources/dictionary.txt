@@ -14,6 +14,7 @@ DockerBIO
 Dockerfile
 DockerHub
 Dockstore
+DRS
 GATK
 GH
 GitHub
@@ -35,6 +36,7 @@ NCI
 NHGRI
 Optimus
 OTTR
+Pangenome
 pre
 preprint
 reproducibility
@@ -44,8 +46,10 @@ UE
 UE5
 UFMG
 UI
+URIs
 underserved
 VM
 WDL
+workspaces
 www
 YAML
