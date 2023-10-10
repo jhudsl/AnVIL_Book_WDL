@@ -19,8 +19,9 @@ more-information
 further-reading
 write-wdl
 access-broad-methods-repository
-write-wdl101-training-example
-export-to-anvil-and-run
+wdl-script-structure
+write-a-hello-input-wdl
+export-to-anvil-powered-by-terra-and-run
 calculate-idxstats-on-multiple-files
 clone-data-workspace
 write-an-idxstats-wdl

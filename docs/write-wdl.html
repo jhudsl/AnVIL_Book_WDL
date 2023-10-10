@@ -111,8 +111,9 @@
 <li class="chapter" data-level="3" data-path="write-wdl.html"><a href="write-wdl.html"><i class="fa fa-check"></i><b>3</b> Write WDL</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="write-wdl.html"><a href="write-wdl.html#access-broad-methods-repository"><i class="fa fa-check"></i><b>3.1</b> Access Broad Methods Repository</a></li>
-<li class="chapter" data-level="3.2" data-path="write-wdl.html"><a href="write-wdl.html#write-wdl101-training-example"><i class="fa fa-check"></i><b>3.2</b> Write WDL101 Training Example</a></li>
-<li class="chapter" data-level="3.3" data-path="write-wdl.html"><a href="write-wdl.html#export-to-anvil-and-run"><i class="fa fa-check"></i><b>3.3</b> Export to AnVIL and run</a></li>
+<li class="chapter" data-level="3.2" data-path="write-wdl.html"><a href="write-wdl.html#wdl-script-structure"><i class="fa fa-check"></i><b>3.2</b> WDL Script Structure</a></li>
+<li class="chapter" data-level="3.3" data-path="write-wdl.html"><a href="write-wdl.html#write-a-hello-input-wdl"><i class="fa fa-check"></i><b>3.3</b> Write a hello-input WDL</a></li>
+<li class="chapter" data-level="3.4" data-path="write-wdl.html"><a href="write-wdl.html#export-to-anvil-powered-by-terra-and-run"><i class="fa fa-check"></i><b>3.4</b> Export to AnVIL-powered-by-Terra and run</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html"><i class="fa fa-check"></i><b>4</b> Calculate idxstats on multiple files</a>
 <ul>
@@ -199,7 +200,9 @@ you can read about other ways the Broad Methods Repository can be used in <a hre
 </ol>
 <div id="access-broad-methods-repository" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Access Broad Methods Repository</h2>
-<p>Let’s start by navigating to the WDL-puzzles workspace that we previously cloned. Please double check your workspace name to ensure that this is the copy that you made rather than the original as you will not be able to use the original workspace to create a new WDL or run a workflow.</p>
+<p>Let’s start by navigating to the <a href="https://app.terra.bio/#workspaces/help-gatk/WDL-puzzles">WDL-puzzles workspace</a> on AnVIL-powered-by-Terra.
+If you completed the review exercise in Chapter 1, you already cloned this workspace. If not, clone it to create your own copy.
+Please double check your workspace name to ensure that this is the copy that you made rather than the original as you will not be able to use the original workspace to create a new WDL or run a workflow.</p>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_185.png" width="480" /></p>
 <p>Once you’ve double checked that you are in a workspace that you can modify and compute, click on the Workflows tab.</p>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_27.png" width="480" /></p>
@@ -214,8 +217,25 @@ Your username (prepended with your lab name) is a reasonable namespace as this m
 Afterwards, add a name such as <code>wdl101</code> to name your WDL.</p>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_16.png" width="480" /></p>
 </div>
-<div id="write-wdl101-training-example" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Write WDL101 Training Example</h2>
+<div id="wdl-script-structure" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> WDL Script Structure</h2>
+<p>Workflows are typically broken down into <strong>tasks</strong>, which each execute one step in the workflow’s analysis.
+Tasks are written in the Workflow Description Language (<strong>WDL</strong>, pronounced “widdle”). WDL tasks have a consistent structure, illustrated in this example:</p>
+<p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g28b2946aa7c_7_6.png" width="480" /></p>
+<p>Each task has 4 sections:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Input</strong> - defines the inputs that the task expects and their types.</li>
+<li><strong>Command</strong> - uses bash commands to call software tools (e.g., Python) to transform the input data.</li>
+<li><strong>Runtime</strong> - specifies the Docker container in which the workflow will run – we’ll discuss this more in Chapter 4.</li>
+<li><strong>Output</strong> - defines the output variable(s) that the transformed data will be written to.</li>
+</ol>
+<p>The <strong>workflow definition</strong> strings together the workflow’s tasks:</p>
+<p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g28b2946aa7c_7_13.png" width="480" /></p>
+<p>In this example, the workflow called “MyWorkflowName” calls two tasks (“task_A” and “task_B”). The workflow starts with an <strong>input section</strong>, just as the tasks do. It then calls each of the tasks, using the output from prior tasks as the inputs for subsequent tasks. Finally, workflows often include an <strong>output</strong> section.</p>
+<p>The workflow definition and task scripts can be written in separate WDL scripts or combined into a single script (as shown in this example).</p>
+</div>
+<div id="write-a-hello-input-wdl" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Write a hello-input WDL</h2>
 <p>Let’s now create a basic WDL!
 This simple “Hello, World!” style workflow will take as input a string, call a single task, and save the output of that task to your workspace bucket.
 The task that is called will run the <a href="https://swcarpentry.github.io/shell-novice/01-intro.html">Bash</a> <code>echo</code> command to print the input string to <code>stdout</code>.</p>
@@ -278,8 +298,8 @@ task WriteGreeting {
   }
 }</code></pre>
 </div>
-<div id="export-to-anvil-and-run" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Export to AnVIL and run</h2>
+<div id="export-to-anvil-powered-by-terra-and-run" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Export to AnVIL-powered-by-Terra and run</h2>
 <p>Once your WDL is complete, click on Upload.</p>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_40.png" width="480" /></p>
 <p>Now click on Export to Workspace.</p>

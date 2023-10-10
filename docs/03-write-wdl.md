@@ -13,7 +13,9 @@ you can read about other ways the Broad Methods Repository can be used in [this 
 
 ## Access Broad Methods Repository
 
-Let's start by navigating to the WDL-puzzles workspace that we previously cloned.  Please double check your workspace name to ensure that this is the copy that you made rather than the original as you will not be able to use the original workspace to create a new WDL or run a workflow.
+Let's start by navigating to the [WDL-puzzles workspace](https://app.terra.bio/#workspaces/help-gatk/WDL-puzzles) on AnVIL-powered-by-Terra.
+If you completed the review exercise in Chapter 1, you already cloned this workspace. If not, clone it to create your own copy.
+Please double check your workspace name to ensure that this is the copy that you made rather than the original as you will not be able to use the original workspace to create a new WDL or run a workflow.
 
 ![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_185.png)<!-- -->
 
@@ -39,7 +41,29 @@ Afterwards, add a name such as `wdl101` to name your WDL.
 
 ![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_16.png)<!-- -->
 
-## Write WDL101 Training Example
+## WDL Script Structure
+
+Workflows are typically broken down into **tasks**, which each execute one step in the workflow’s analysis.
+Tasks are written in the Workflow Description Language (**WDL**, pronounced “widdle”). WDL tasks have a consistent structure, illustrated in this example:
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g28b2946aa7c_7_6.png)<!-- -->
+
+Each task has 4 sections:
+
+1. **Input** - defines the inputs that the task expects and their types.
+1. **Command** - uses bash commands to call software tools (e.g., Python) to transform the input data.
+1. **Runtime** - specifies the Docker container in which the workflow will run – we’ll discuss this more in Chapter 4.
+1. **Output** - defines the output variable(s) that the transformed data will be written to.
+
+The **workflow definition** strings together the workflow’s tasks:
+
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g28b2946aa7c_7_13.png)<!-- -->
+
+In this example, the workflow called “MyWorkflowName” calls two tasks (“task_A” and “task_B”). The workflow starts with an **input section**, just as the tasks do. It then calls each of the tasks, using the output from prior tasks as the inputs for subsequent tasks. Finally, workflows often include an **output** section.
+
+The workflow definition and task scripts can be written in separate WDL scripts or combined into a single script (as shown in this example).
+
+## Write a hello-input WDL
 
 Let's now create a basic WDL!
 This simple "Hello, World!" style workflow will take as input a string, call a single task, and save the output of that task to your workspace bucket.
@@ -119,7 +143,7 @@ task WriteGreeting {
 }
 ```
 
-## Export to AnVIL and run
+## Export to AnVIL-powered-by-Terra and run
 
 Once your WDL is complete, click on Upload.
 
