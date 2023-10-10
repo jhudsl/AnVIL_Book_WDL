@@ -1,1 +1,9 @@
 # Join Discourse
+
+Congratulations!  You've practiced running WDL Workflows on AnVIL, importing and configuring publicly available WDL workflows, writing an introductory WDL using the web-based editor at Broad Methods Repository, calculating idxstats across multiple genomic data files, and customizing your own Docker image.
+
+Please join the the conversation in the AnVIL Support Forums at https://help.anvilproject.org where you can ask any and all questions and we'll do our best to help!
+
+```{r, echo=FALSE}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ/edit#slide=id.g1397c25e58c_0_173")
+```
