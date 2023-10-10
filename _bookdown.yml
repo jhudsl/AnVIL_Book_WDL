@@ -3,7 +3,7 @@ chapter_name: "Chapter "
 repo: https://github.com/jhudsl/AnVIL_Book_WDL/
 rmd_files: ["index.Rmd",
             "01-introduction.Rmd",
-            "02-run-workflow.Rmd",
+            "02-import-configure.Rmd",
             "03-write-wdl.Rmd",
             "04-localize-files.Rmd",
             "05-customize-docker.Rmd",
