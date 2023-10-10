@@ -108,7 +108,7 @@ First, fork the [reproducible-R-example](https://github.com/jhudsl/reproducible-
 
 ![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_177.png)<!-- -->
 
-Your new repository must be configured with the proper credentials (referred to as [Actions secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets)) to push an image to Docker Hub.  Follow the [OTTR Project instructions](https://www.ottrproject.org/customize-docker.html#Set_Dockerhub_related_secrets)) to set `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN`.
+Your new repository must be configured with the proper credentials (referred to as [Actions secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) by GitHub) to push an image to Docker Hub.  Follow the [OTTR Project instructions](https://www.ottrproject.org/customize-docker.html#Set_Dockerhub_related_secrets)) to set `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN`.
 
 ![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g158d610a26d_0_3.png)<!-- -->
 

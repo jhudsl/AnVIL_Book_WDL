@@ -43,7 +43,7 @@ Afterwards, add a name such as `wdl101` to name your WDL.
 
 Let's now create a basic WDL!
 This simple "Hello, World!" style workflow will take as input a string, call a single task, and save the output of that task to your workspace bucket.
-The task that is called will run the [Bash](https://swcarpentry.github.io/shell-novice/01-intro/index.html) `echo` command to print the input string to `stdout`.
+The task that is called will run the [Bash](https://swcarpentry.github.io/shell-novice/01-intro.html) `echo` command to print the input string to `stdout`.
 
 First note that we are using the [WDL 1.0 spec](https://github.com/openwdl/wdl/tree/main/versions).
 

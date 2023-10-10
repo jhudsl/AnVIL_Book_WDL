@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/AnVIL_style/anvil_favicon.ico" type="image/x-icon" />
-<link rel="prev" href="localize-files.html"/>
+<link rel="prev" href="calculate-idxstats-on-multiple-files.html"/>
 <link rel="next" href="join-discourse.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -114,7 +114,17 @@
 <li class="chapter" data-level="3.2" data-path="write-wdl.html"><a href="write-wdl.html#write-wdl101-training-example"><i class="fa fa-check"></i><b>3.2</b> Write WDL101 Training Example</a></li>
 <li class="chapter" data-level="3.3" data-path="write-wdl.html"><a href="write-wdl.html#export-to-anvil-and-run"><i class="fa fa-check"></i><b>3.3</b> Export to AnVIL and run</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="localize-files.html"><a href="localize-files.html"><i class="fa fa-check"></i><b>4</b> Localize Files</a></li>
+<li class="chapter" data-level="4" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html"><i class="fa fa-check"></i><b>4</b> Calculate idxstats on multiple files</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#clone-data-workspace"><i class="fa fa-check"></i><b>4.1</b> Clone data workspace</a></li>
+<li class="chapter" data-level="4.2" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#write-an-idxstats-wdl"><i class="fa fa-check"></i><b>4.2</b> Write an idxstats WDL</a></li>
+<li class="chapter" data-level="4.3" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#optional-run-idxstats-wdl-on-multiple-.bam-files"><i class="fa fa-check"></i><b>4.3</b> Optional: Run idxstats WDL on multiple .bam files</a></li>
+<li class="chapter" data-level="4.4" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#customize-your-workflows-setup-with-wdl"><i class="fa fa-check"></i><b>4.4</b> Customize your Workflow’s Setup with WDL</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#memory-retry"><i class="fa fa-check"></i><b>4.4.1</b> Memory retry</a></li>
+<li class="chapter" data-level="4.4.2" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#localizing-files"><i class="fa fa-check"></i><b>4.4.2</b> Localizing files</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="customize-docker.html"><a href="customize-docker.html"><i class="fa fa-check"></i><b>5</b> Customize Docker</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="customize-docker.html"><a href="customize-docker.html#prerequisites"><i class="fa fa-check"></i><b>5.1</b> Prerequisites</a></li>
@@ -267,7 +277,7 @@ More information about making Docker images can be found in <a href="https://sup
 We will start with a repository created for the ITN course <a href="https://jhudatascience.org/Reproducibility_in_Cancer_Informatics">Intro to Reproducibility in Cancer Informatics</a> that has this GitHub Action configured.</p>
 <p>First, fork the <a href="https://github.com/jhudsl/reproducible-R-example">reproducible-R-example</a> repository.</p>
 <p><img src="05-customize-docker_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_177.png" width="480" /></p>
-<p>Your new repository must be configured with the proper credentials (referred to as <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">Actions secrets</a>) to push an image to Docker Hub. Follow the <a href="https://www.ottrproject.org/customize-docker.html#Set_Dockerhub_related_secrets">OTTR Project instructions</a>) to set <code>DOCKERHUB_USERNAME</code> and <code>DOCKERHUB_TOKEN</code>.</p>
+<p>Your new repository must be configured with the proper credentials (referred to as <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">Actions secrets</a> by GitHub) to push an image to Docker Hub. Follow the <a href="https://www.ottrproject.org/customize-docker.html#Set_Dockerhub_related_secrets">OTTR Project instructions</a>) to set <code>DOCKERHUB_USERNAME</code> and <code>DOCKERHUB_TOKEN</code>.</p>
 <p><img src="05-customize-docker_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g158d610a26d_0_3.png" width="480" /></p>
 <p>Update the <code>.github/workflows/docker-management.yml</code> file with your Docker Hub username and repository. For example, change <code>jhudsl/reproducible-r</code> to <code>my_username/my_repository</code>. Note that you need to change this on both line 53 and line 71.</p>
 <p><img src="05-customize-docker_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g158d610a26d_0_8.png" width="480" /></p>
@@ -370,7 +380,7 @@ task idxstats {
           </div>
         </div>
       </div>
-<a href="localize-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="calculate-idxstats-on-multiple-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="join-discourse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

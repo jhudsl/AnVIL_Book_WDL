@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | WDL Workflows</title>
+  <title>Chapter 4 Calculate idxstats on multiple files | WDL Workflows</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | WDL Workflows" />
+  <meta property="og:title" content="Chapter 4 Calculate idxstats on multiple files | WDL Workflows" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | WDL Workflows" />
+  <meta name="twitter:title" content="Chapter 4 Calculate idxstats on multiple files | WDL Workflows" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/AnVIL_style/anvil_favicon.ico" type="image/x-icon" />
-
-
+<link rel="prev" href="write-wdl.html"/>
+<link rel="next" href="customize-docker.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -185,11 +185,139 @@
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/AnVIL_style/dasl_thin_main_image.png">
 </div>
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="calculate-idxstats-on-multiple-files" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Calculate idxstats on multiple files</h1>
+<p>Now that you’ve successfully written an introductory WDL, this chapter demonstrates how WDL Workflows can easily perform an analysis across multiple genomic data files.
+This material is adapted from the <a href="https://support.terra.bio/hc/en-us/articles/18618717942427">WDL Bootcamp workshop</a>.
+For more hands-on WDL-writing exercises, see <a href="https://support.terra.bio/hc/en-us/articles/360056599991">Hands-on practice for scripting and configuring Terra workflows</a>.</p>
+<p><strong>Learning Objectives</strong></p>
+<ul>
+<li>Solidify your understanding of a WDL script’s structure</li>
+<li>Modify a template to write a more complex WDL</li>
+<li>Understand how to customize a workflow’s setup with WDL</li>
+</ul>
+<div id="clone-data-workspace" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Clone data workspace</h2>
+<p>Let’s start by navigating to the <a href="https://anvil.terra.bio/#workspaces/anvil-outreach/demos-combine-data-workspaces">demos-combine-data-workspaces</a> on AnVIL-powered-by-Terra.
+This workspace contains a Data Table named <code>sample</code> which contains references to four .cram files, two from the <a href="https://anvil.terra.bio/#workspaces/anvil-datastorage/1000G-high-coverage-2019">1000 Genomes Project</a> and two from the <a href="https://anvil.terra.bio/#workspaces/anvil-datastorage/AnVIL_HPRC">Human Pangenome Reference Consortium</a>.</p>
+<p>Clone this workspace to create a place where you can organize your analysis.</p>
+<p><img src="04-calculate-idxstats_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_181.png" width="480" /></p>
+<p>Examine the <code>sample</code> table in the Data tab to ensure that you see references to four .cram files.</p>
+<p><img src="04-calculate-idxstats_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_1.png" width="480" /></p>
+<p>In the next steps, you will write a WDL to analyze these .cram files, run the Workflow, and examine the output.</p>
+</div>
+<div id="write-an-idxstats-wdl" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Write an idxstats WDL</h2>
+<p>To build off of your hello-input WDL, let’s practice writing a more complex WDL. In this exercise, you’ll fill in a template script to calculate Quality Control (QC) metrics for a BAM/CRAM file using the <code>samtools idxstats</code> function. For this exercise, there are two WDL <code>runtime</code> parameters that we <strong>must</strong> update for the Workflow to succeed:</p>
+<ul>
+<li><code>docker</code> – Specify a Docker image that contains necessary software</li>
+<li><code>disks</code> – Increase the disk size for each provisioned resource</li>
+</ul>
+<p>Start by <a href="https://drive.google.com/file/d/1OH4L5LQNquDhNvycRHzWVH6Z1HR5R7kD">downloading the template script</a> shown below. Open it in a text editor and modify it to call <code>samtools idxstats</code> on a bam file.</p>
+<pre><code>version 1.0
+workflow SamtoolsMetrics {
+  input {
+    File inputBam 
+  }
+  call  {
+    input: 
+  }
+  output {
+  }
+}
+
+task  {
+  input {
+  }
+  command &lt;&lt;&lt;
+  &gt;&gt;&gt;
+  output {
+  }
+  runtime {
+    docker: &#39;&#39;
+  }
+}</code></pre>
+<p>Importantly, you <strong>must</strong>:</p>
+<ul>
+<li>Specify a Docker image that contains SAMtools (e.g. <code>ekiernan/wdl-101:v1</code>)</li>
+<li>Increase the disk size for each provisioned resource, e.g. <code>local-disk 50 HDD</code></li>
+</ul>
+<p>Hints:</p>
+<ul>
+<li>Follow the same general method as in the “Hello World” exercise in section 3.3.</li>
+<li>In this case, the input will be a BAM file.</li>
+<li>The output will be a file called <code>idxststats.txt</code>.</li>
+<li>The task will be to calculate QC metrics, using this command:</li>
+</ul>
+<pre><code>samtools index ~{bamfile}
+samtools idxstats ~{bamfile} &gt; counts.txt</code></pre>
+<p>Then, compare your version to the completed version below:</p>
+<pre><code>version 1.0
+workflow samtoolsIdxstats {
+  input {
+    File bamfile
+  }
+  call idxstats {
+    input: 
+      bamfile = bamfile
+  }
+  output {
+    File results = idxstats.idxstats
+  }
+}
+
+task idxstats {
+  input {
+    File bamfile
+  }
+  command &lt;&lt;&lt;
+    samtools index ~{bamfile}
+    samtools idxstats ~{bamfile} &gt; idxstats.txt
+  &gt;&gt;&gt;
+  output {
+    File idxstats = &quot;idxstats.txt&quot;
+  }
+  runtime {
+  disks: &#39;local-disk 50 HDD&#39;
+    docker: &#39;ekiernan/wdl-101:v1&#39;
+  }
+}</code></pre>
+</div>
+<div id="optional-run-idxstats-wdl-on-multiple-.bam-files" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Optional: Run idxstats WDL on multiple .bam files</h2>
+<p>You can test this workflow out by creating a new method in the Broad Methods Repository, exporting it to your clone of the demos-combine-data-workspaces workspace, and running it on samples in the ’sample data table.</p>
+<p>First, go to the “Workflows” tab and access the Broad Methods Repository through the “Find a Workflow” card:</p>
+<p><img src="04-calculate-idxstats_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_6.png" width="480" /></p>
+<p>Copy and paste the idxstats WDL you wrote above and export to your workspace (see Chapter 3 if you need a refresher). Next, select “Run workflow(s) with inputs defined by data table” and choose the .cram files that you wish to analyze:</p>
+<ul>
+<li>Step 1: Select the <code>sample</code> table in the root entity type drop-down menu</li>
+<li>Step 2: Click “Select Data” and tick the checkboxes for one or more rows in the data table</li>
+</ul>
+<p><img src="04-calculate-idxstats_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_11.png" width="480" /></p>
+<p><img src="04-calculate-idxstats_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_16.png" width="480" /></p>
+<p>Finally, configure the “Inputs” tab by specifying <code>this.cram</code> as the Attribute for the variable <code>bamfile</code> for the task <code>samtoolsIdxstats</code>. <strong>Don’t forget to click “Save”</strong>.</p>
+<p><img src="04-calculate-idxstats_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_21.png" width="480" /></p>
+<p>Now run the job by clicking “Run Analysis”! You can monitor the progress from “Queued” to “Running” to “Succeeded” in the “Job History” tab</p>
+<p><img src="04-calculate-idxstats_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_47.png" width="480" /></p>
+<p>Once the job is complete, navigate to the “Data” tab and click on “Files” to find the <code>idxstats.txt</code> output and logs by traversing through</p>
+<pre><code>submissions/&lt;submission_id&gt;/samtoolsIdxstats/&lt;workflow_id&gt;/call-idxstats/</code></pre>
+<p><img src="04-calculate-idxstats_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_53.png" width="480" /></p>
+</div>
+<div id="customize-your-workflows-setup-with-wdl" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Customize your Workflow’s Setup with WDL</h2>
+<p>In addition to defining the workflow’s tasks, WDL scripts can define how your workflow runs in AnVIL-powered-by-Terra.</p>
+<div id="memory-retry" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Memory retry</h3>
+<p>Some workflows require more memory than others. But, memory is not free, so you don’t want to request more memory than you need. One solution to this tension is to start with a small amount of memory and then request more if you run out of memory. Learn how to do this from your WDL script by reading <a href="https://support.terra.bio/hc/en-us/articles/4403215299355">Out of Memory Retry</a>, and see <a href="https://support.terra.bio/hc/en-us/articles/360026521831">Workflow setup: VM and other options</a> for a general overview of how to set up your workflow’s compute resources.</p>
+</div>
+<div id="localizing-files" class="section level3" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Localizing files</h3>
+<p>It can be hard to know where your data files are located within your workspace bucket – the folders aren’t intuitively named, and often your files are saved several folders deep.</p>
+<p>Luckily, WDL scripts can localize your files for you. For more on this, see <a href="https://support.terra.bio/hc/en-us/articles/4415971884827">How to configure workflow inputs</a>, <a href="https://support.terra.bio/hc/en-us/articles/6635144998939">How to use DRS URIs in a workflow</a>, and <a href="https://support.terra.bio/hc/en-us/articles/360033353952">Creating a list file of reads for input to a workflow</a>.</p>
+<p>If your workflow generates files, you can also write their location to a data table. This is useful for both intermediate files and the workflow’s final outputs. For more on this topic, see <a href="https://support.terra.bio/hc/en-us/articles/4500420806299">Writing workflow outputs to the data table</a>.</p>
+
+</div>
+</div>
 </div>
 <hr>
 <center> 
@@ -204,8 +332,8 @@ the table of contents to find the page you are looking for.</p>
           </div>
         </div>
       </div>
-
-
+<a href="write-wdl.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="customize-docker.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

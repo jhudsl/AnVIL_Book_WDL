@@ -31,7 +31,7 @@
   
   <link rel="shortcut icon" href="assets/AnVIL_style/anvil_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="import-and-configure-workflows.html"/>
-<link rel="next" href="localize-files.html"/>
+<link rel="next" href="calculate-idxstats-on-multiple-files.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -114,7 +114,17 @@
 <li class="chapter" data-level="3.2" data-path="write-wdl.html"><a href="write-wdl.html#write-wdl101-training-example"><i class="fa fa-check"></i><b>3.2</b> Write WDL101 Training Example</a></li>
 <li class="chapter" data-level="3.3" data-path="write-wdl.html"><a href="write-wdl.html#export-to-anvil-and-run"><i class="fa fa-check"></i><b>3.3</b> Export to AnVIL and run</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="localize-files.html"><a href="localize-files.html"><i class="fa fa-check"></i><b>4</b> Localize Files</a></li>
+<li class="chapter" data-level="4" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html"><i class="fa fa-check"></i><b>4</b> Calculate idxstats on multiple files</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#clone-data-workspace"><i class="fa fa-check"></i><b>4.1</b> Clone data workspace</a></li>
+<li class="chapter" data-level="4.2" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#write-an-idxstats-wdl"><i class="fa fa-check"></i><b>4.2</b> Write an idxstats WDL</a></li>
+<li class="chapter" data-level="4.3" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#optional-run-idxstats-wdl-on-multiple-.bam-files"><i class="fa fa-check"></i><b>4.3</b> Optional: Run idxstats WDL on multiple .bam files</a></li>
+<li class="chapter" data-level="4.4" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#customize-your-workflows-setup-with-wdl"><i class="fa fa-check"></i><b>4.4</b> Customize your Workflow’s Setup with WDL</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#memory-retry"><i class="fa fa-check"></i><b>4.4.1</b> Memory retry</a></li>
+<li class="chapter" data-level="4.4.2" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#localizing-files"><i class="fa fa-check"></i><b>4.4.2</b> Localizing files</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="customize-docker.html"><a href="customize-docker.html"><i class="fa fa-check"></i><b>5</b> Customize Docker</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="customize-docker.html"><a href="customize-docker.html#prerequisites"><i class="fa fa-check"></i><b>5.1</b> Prerequisites</a></li>
@@ -208,7 +218,7 @@ Afterwards, add a name such as <code>wdl101</code> to name your WDL.</p>
 <h2><span class="header-section-number">3.2</span> Write WDL101 Training Example</h2>
 <p>Let’s now create a basic WDL!
 This simple “Hello, World!” style workflow will take as input a string, call a single task, and save the output of that task to your workspace bucket.
-The task that is called will run the <a href="https://swcarpentry.github.io/shell-novice/01-intro/index.html">Bash</a> <code>echo</code> command to print the input string to <code>stdout</code>.</p>
+The task that is called will run the <a href="https://swcarpentry.github.io/shell-novice/01-intro.html">Bash</a> <code>echo</code> command to print the input string to <code>stdout</code>.</p>
 <p>First note that we are using the <a href="https://github.com/openwdl/wdl/tree/main/versions">WDL 1.0 spec</a>.</p>
 <pre><code>version 1.0</code></pre>
 <p>Let’s add a workflow <code>HelloInput</code> that calls a single task <code>WriteGreeting</code>.</p>
@@ -299,7 +309,7 @@ task WriteGreeting {
         </div>
       </div>
 <a href="import-and-configure-workflows.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="localize-files.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="calculate-idxstats-on-multiple-files.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
