@@ -1,12 +1,16 @@
 AnVIL
 bam
+Bing
 bioconda
 Bioinformática
+bioinformatics
 BIPOC
 Bloomberg
+Bootcamp
 conda
 condaforge
 Datatrail
+DockerBIO
 Dockerfile
 DockerHub
 Dockstore
@@ -14,6 +18,7 @@ GATK
 GitHub
 idxstats
 impactful
+io
 ITCR
 itcrtraining
 ITN
@@ -24,6 +29,7 @@ mentorship
 NCI
 NHGRI
 OTTR
+pre
 preprint
 reproducibility
 SAMtools
