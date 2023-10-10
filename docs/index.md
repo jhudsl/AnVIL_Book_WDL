@@ -1,6 +1,6 @@
 ---
 title: "WDL Workflows"
-date: "March 23, 2023"
+date: "October 10, 2023"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

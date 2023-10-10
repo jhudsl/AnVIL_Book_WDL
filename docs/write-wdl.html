@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2023-03-23" />
+<meta name="date" content="2023-10-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -88,7 +88,29 @@
 <li class="chapter" data-level="3.3" data-path="write-wdl.html"><a href="write-wdl.html#export-to-anvil-and-run"><i class="fa fa-check"></i><b>3.3</b> Export to AnVIL and run</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="localize-files.html"><a href="localize-files.html"><i class="fa fa-check"></i><b>4</b> Localize Files</a></li>
-<li class="chapter" data-level="5" data-path="customize-docker.html"><a href="customize-docker.html"><i class="fa fa-check"></i><b>5</b> Customize Docker</a></li>
+<li class="chapter" data-level="5" data-path="customize-docker.html"><a href="customize-docker.html"><i class="fa fa-check"></i><b>5</b> Customize Docker</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="customize-docker.html"><a href="customize-docker.html#prerequisites"><i class="fa fa-check"></i><b>5.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="5.2" data-path="customize-docker.html"><a href="customize-docker.html#containerization-with-docker"><i class="fa fa-check"></i><b>5.2</b> Containerization with Docker</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="customize-docker.html"><a href="customize-docker.html#why-is-containerization-helpful"><i class="fa fa-check"></i><b>5.2.1</b> Why is containerization helpful?</a></li>
+<li class="chapter" data-level="5.2.2" data-path="customize-docker.html"><a href="customize-docker.html#docker-containers"><i class="fa fa-check"></i><b>5.2.2</b> Docker containers</a></li>
+<li class="chapter" data-level="5.2.3" data-path="customize-docker.html"><a href="customize-docker.html#using-docker-containers-in-your-workflow"><i class="fa fa-check"></i><b>5.2.3</b> Using Docker containers in your workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="customize-docker.html"><a href="customize-docker.html#using-a-published-docker-image-out-of-the-box"><i class="fa fa-check"></i><b>5.3</b> Using a Published Docker Image Out of the Box</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="customize-docker.html"><a href="customize-docker.html#google"><i class="fa fa-check"></i><b>5.3.1</b> Google</a></li>
+<li class="chapter" data-level="5.3.2" data-path="customize-docker.html"><a href="customize-docker.html#docker-hub-and-quay.io"><i class="fa fa-check"></i><b>5.3.2</b> Docker Hub and Quay.io</a></li>
+<li class="chapter" data-level="5.3.3" data-path="customize-docker.html"><a href="customize-docker.html#dockerbio"><i class="fa fa-check"></i><b>5.3.3</b> DockerBIO</a></li>
+<li class="chapter" data-level="5.3.4" data-path="customize-docker.html"><a href="customize-docker.html#next-steps"><i class="fa fa-check"></i><b>5.3.4</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="customize-docker.html"><a href="customize-docker.html#configure-github-actions"><i class="fa fa-check"></i><b>5.4</b> Configure GitHub Actions</a></li>
+<li class="chapter" data-level="5.5" data-path="customize-docker.html"><a href="customize-docker.html#build-docker-image"><i class="fa fa-check"></i><b>5.5</b> Build Docker image</a></li>
+<li class="chapter" data-level="5.6" data-path="customize-docker.html"><a href="customize-docker.html#use-your-image-with-the-idxstats-wdl"><i class="fa fa-check"></i><b>5.6</b> Use your image with the idxstats WDL</a></li>
+<li class="chapter" data-level="5.7" data-path="customize-docker.html"><a href="customize-docker.html#run-idxstats-workflow"><i class="fa fa-check"></i><b>5.7</b> Run idxstats workflow</a></li>
+<li class="chapter" data-level="5.8" data-path="customize-docker.html"><a href="customize-docker.html#best-practices-for-using-docker"><i class="fa fa-check"></i><b>5.8</b> Best practices for using Docker</a></li>
+<li class="chapter" data-level="5.9" data-path="customize-docker.html"><a href="customize-docker.html#further-reading"><i class="fa fa-check"></i><b>5.9</b> Further Reading</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="join-discourse.html"><a href="join-discourse.html"><i class="fa fa-check"></i><b>6</b> Join Discourse</a></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -141,18 +163,6 @@ you can read about other ways the Broad Methods Repository can be used in <a hre
 <div id="access-broad-methods-repository" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Access Broad Methods Repository</h2>
 <p>Let’s start by navigating to the WDL-puzzles workspace that we previously cloned. Please double check your workspace name to ensure that this is the copy that you made rather than the original as you will not be able to use the original workspace to create a new WDL or run a workflow.</p>
-<pre><code>## Warning: replacing previous import &#39;ellipsis::check_dots_unnamed&#39; by
-## &#39;rlang::check_dots_unnamed&#39; when loading &#39;tibble&#39;</code></pre>
-<pre><code>## Warning: replacing previous import &#39;ellipsis::check_dots_used&#39; by
-## &#39;rlang::check_dots_used&#39; when loading &#39;tibble&#39;</code></pre>
-<pre><code>## Warning: replacing previous import &#39;ellipsis::check_dots_empty&#39; by
-## &#39;rlang::check_dots_empty&#39; when loading &#39;tibble&#39;</code></pre>
-<pre><code>## Warning: replacing previous import &#39;ellipsis::check_dots_unnamed&#39; by
-## &#39;rlang::check_dots_unnamed&#39; when loading &#39;pillar&#39;</code></pre>
-<pre><code>## Warning: replacing previous import &#39;ellipsis::check_dots_used&#39; by
-## &#39;rlang::check_dots_used&#39; when loading &#39;pillar&#39;</code></pre>
-<pre><code>## Warning: replacing previous import &#39;ellipsis::check_dots_empty&#39; by
-## &#39;rlang::check_dots_empty&#39; when loading &#39;pillar&#39;</code></pre>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_185.png" width="480" /></p>
 <p>Once you’ve double checked that you are in a workspace that you can modify and compute, click on the Workflows tab.</p>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_27.png" width="480" /></p>
