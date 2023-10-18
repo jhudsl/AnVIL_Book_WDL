@@ -1,3 +1,8 @@
+
+```r
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 # Import and Configure Workflows
 
 This chapter describes how to import publicly available WDL workflows and their associated configuration files.
@@ -28,7 +33,7 @@ Use the instructions in [Step 1 of “How to import a workflow and its parameter
 
 Then, navigate to the **Versions** tab and click on the version you want to export to AnVIL-powered-by-Terra:
 
-![](02-import-configure_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_5.png)<!-- -->
+![](02-import-configure_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_5.png){width=100%}
 
 Finally, follow the instructions in [Step 2](https://support.terra.bio/hc/en-us/articles/360038137292#heading-2) to export the workflow to your cloned version of the WDL-puzzles workspace.
 
@@ -46,9 +51,9 @@ To run a workflow in AnVIL-powered-by-Terra, you need to specify its inputs and 
 
 To pre-configure a workflow, you can upload a file that specifies the default values for some set of your workflow’s inputs. JSON is the most common format for this configuration file. AnVIL-powered-by-Terra will automatically fill these values into the workflow configuration form. If necessary. you can always change these values when running the workflow. 
 
-![](02-import-configure_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_12.png)<!-- -->
+![](02-import-configure_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_12.png){width=100%}
 
-![](02-import-configure_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_18.png)<!-- -->
+![](02-import-configure_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_18.png){width=100%}
 
 ### Optional practice: pre-configure a workflow
 
@@ -58,7 +63,7 @@ An easy way to do this is to download a JSON file from an existing workflow, edi
 
 To practice this, open the **easy-puzzle-solved** workflow in your clone of the WDL-puzzles workspace and download the JSON file:
 
-![](02-import-configure_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_24.png)<!-- -->
+![](02-import-configure_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_24.png){width=100%}
 
 Open the JSON file in a text editor. It should look something like this, if the last time you ran it your input was “Marie Curie”:
 
@@ -68,7 +73,7 @@ Open the JSON file in a text editor. It should look something like this, if the 
 
 Edit the file to set the input name to your name, instead of Marie Curie. Save the file, go back to your workflow and upload the edited JSON file by clicking the “Drag or click to upload json” link:
 
-![](02-import-configure_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_30.png)<!-- -->
+![](02-import-configure_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_30.png){width=100%}
 
 The input for the “name” variable should now be set to your name. Be sure to **click Save** to ensure that this change persists the next time you open the workflow.
 

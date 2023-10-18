@@ -1,3 +1,8 @@
+
+```r
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 # Write WDL
 
 Now that you've successfully run a Workflow on AnVIL-powered-by-Terra, this tutorial demonstrates how you can create and edit a WDL using the [Broad Methods Repository](https://portal.firecloud.org/?return=anvil#methods).
@@ -17,36 +22,36 @@ Let's start by navigating to the [WDL-puzzles workspace](https://app.terra.bio/#
 If you completed the review exercise in Chapter 1, you already cloned this workspace. If not, clone it to create your own copy.
 Please **double check your workspace name** to ensure that this is the copy that you made rather than the original as you will not be able to use the original workspace to create a new WDL or run a workflow.
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_185.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_185.png){width=100%}
 
 Once you've double checked that you are in a workspace that you can modify and compute, click on the Workflows tab.
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_27.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_27.png){width=100%}
 
 Click on the Find a Workflow card.
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_1.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_1.png){width=100%}
 
 Select the Broad Methods Repository option.
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_6.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_6.png){width=100%}
 
 Click Create New Method.
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_11.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_11.png){width=100%}
 
 Add a namespace to the first text box to organize your WDLs.
 Your username (perhaps prepended with your lab name) is a reasonable namespace as this must be unique across all of Broad Methods Repository.
 Afterwards, add a name such as `wdl101` to name your WDL.
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_16.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_16.png){width=100%}
 
 ## WDL Script Structure
 
 Workflows are typically broken down into **tasks**, which each execute one step in the workflow’s analysis.
 Tasks are written in the Workflow Description Language (**WDL**, pronounced “widdle”). WDL tasks have a consistent structure, illustrated in this example:
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g28b2946aa7c_7_6.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g28b2946aa7c_7_6.png){width=100%}
 
 Each task has 4 sections:
 
@@ -57,7 +62,7 @@ Each task has 4 sections:
 
 The **workflow definition** strings together the workflow’s tasks:
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g28b2946aa7c_7_13.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g28b2946aa7c_7_13.png){width=100%}
 
 In this example, the workflow called “MyWorkflowName” calls two tasks (“task_A” and “task_B”). The workflow starts with an **input section**, just as the tasks do. It then calls each of the tasks, using the output from prior tasks as the inputs for subsequent tasks. Finally, workflows often include an **output** section (although the example above does not).
 
@@ -147,24 +152,24 @@ task WriteGreeting {
 
 Once your WDL is complete, click on Upload.
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_40.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_40.png){width=100%}
 
 Now click on Export to Workspace.
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_45.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_45.png){width=100%}
 
 Select Use Blank Configuration.
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_50.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_50.png){width=100%}
 
 Select a Destination Workspace such as your clone of WDL-puzzles.  Afterwards, click Export to Workspace.
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_55.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_55.png){width=100%}
 
 Lastly, configure your Workflow as you did in Chapter 1 (e.g. inputs defined by file paths, name in double quotes), click Save, and then click Run Analysis.
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_60.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_60.png){width=100%}
 
 Voila!  Here's what you hopefully see after successfully running your WDL101 Training Example !
 
-![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_65.png)<!-- -->
+![](03-write-wdl_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_65.png){width=100%}

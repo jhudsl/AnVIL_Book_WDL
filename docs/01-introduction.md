@@ -1,3 +1,8 @@
+
+```r
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 # Review Workflows on AnVIL-powered-by-Terra
 
 This **review** chapter introduces several basic concepts for working with WDL Workflows.
@@ -33,25 +38,25 @@ By showcasing how input parameters are specified and where output files can be f
 
 Clone the [WDL-puzzles](https://app.terra.bio/#workspaces/help-gatk/WDL-puzzles) workspace
 
-![](01-introduction_files/figure-docx//1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_33.png)<!-- -->
+![](01-introduction_files/figure-docx//1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_33.png){width=100%}
 
 ### View WDL
 
 View the **easy-puzzle-solved** WDL script by opening the workflow in the Broad Methods Repository
 
-![](01-introduction_files/figure-docx//1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_58.png)<!-- -->
+![](01-introduction_files/figure-docx//1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_58.png){width=100%}
 
 ### Configure Workflow
 
 Configure and run the **easy-puzzle-solved** workflow
 
-![](01-introduction_files/figure-docx//1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_73.png)<!-- -->
+![](01-introduction_files/figure-docx//1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_73.png){width=100%}
 
 ### Examine Output
 
 Examine the output from the **HelloInput** task in the **easy-puzzle-solved** workflow
 
-![](01-introduction_files/figure-docx//1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_129.png)<!-- -->
+![](01-introduction_files/figure-docx//1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_129.png){width=100%}
 
 ### Watch Video
 

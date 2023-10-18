@@ -1,3 +1,8 @@
+
+```r
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 # Calculate idxstats on multiple files
 
 Now that you’ve successfully written an introductory WDL, this chapter demonstrates how WDL Workflows can easily perform an analysis across multiple genomic data files.
@@ -17,11 +22,11 @@ This workspace contains a Data Table named `sample` which contains references to
 
 Clone this workspace to create a place where you can organize your analysis.  
 
-![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_181.png)<!-- -->
+![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_181.png){width=100%}
 
 Examine the `sample` table in the Data tab to ensure that you see references to four .cram files.
 
-![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_1.png)<!-- -->
+![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_1.png){width=100%}
 
 In the next steps, you will write a WDL to analyze these .cram files, run the Workflow, and examine the output.
 
@@ -118,25 +123,25 @@ You can test this workflow out by creating a new method in the Broad Methods Rep
 
 First, go to the “Workflows” tab and access the Broad Methods Repository through the “Find a Workflow” card:
 
-![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_6.png)<!-- -->
+![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_6.png){width=100%}
 
 Copy and paste the idxstats WDL you wrote above and export to your workspace (see Chapter 3 if you need a refresher).  Next, select “Run workflow(s) with inputs defined by data table” and choose the .cram files that you wish to analyze:
 
 - Step 1: Select the `sample` table in the root entity type drop-down menu
 - Step 2: Click “Select Data” and tick the checkboxes for one or more rows in the data table
 
-![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_11.png)<!-- -->
+![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_11.png){width=100%}
 
-![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_16.png)<!-- -->
+![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_16.png){width=100%}
 
 Finally, configure the “Inputs” tab by specifying `this.cram` as the Attribute for the variable `bamfile` for the task `samtoolsIdxstats`.  **Don’t forget to click “Save”**.
 
-![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_21.png)<!-- -->
+![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_21.png){width=100%}
 
 
 Now run the job by clicking “Run Analysis”!  You can monitor the progress from “Queued” to “Running” to “Succeeded” in the “Job History” tab
 
-![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_47.png)<!-- -->
+![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_47.png){width=100%}
 
 Once the job is complete, navigate to the “Data” tab and click on “Files” to find the `idxstats.txt` output and logs by traversing through
 
@@ -144,7 +149,7 @@ Once the job is complete, navigate to the “Data” tab and click on “Files�
 submissions/<submission_id>/samtoolsIdxstats/<workflow_id>/call-idxstats/
 ```
 
-![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_53.png)<!-- -->
+![](04-calculate-idxstats_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g288edfe8bc0_0_53.png){width=100%}
 
 ## Customize your Workflow’s Setup with WDL
 

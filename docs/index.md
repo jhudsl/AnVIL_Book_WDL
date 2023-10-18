@@ -13,11 +13,16 @@ output:
       toc: true
 ---
 
+
+```r
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 # Overview {-}
 
 This book introduces WDL Workflows on AnVIL-powered-by-Terra.  After introducing several concepts, including basic WDL syntax, we present hands-on exercises to run a workflow, write a WDL, localize a file, customize a Docker image, and join the Discourse.  No local software installation is required as each exercise leverages web-based resources.
 
-![](index_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_2.png)<!-- -->
+![](index_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_2.png){width=100%}
 
 ## Skills Level {-}
 

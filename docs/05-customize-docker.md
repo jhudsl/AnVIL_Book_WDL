@@ -1,3 +1,8 @@
+
+```r
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 # Customize Docker
 
 Having run a workflow, written a WDL, and localized a file, let's now build a custom Docker image.
@@ -34,7 +39,7 @@ Behind the scenes, a workflow requires four main elements:
 1. An **execution engine** to manage the workflow’s jobs
 1. A **container** in which to run the workflow
 
-![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g278ce060607_0_0.png)<!-- -->
+![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g278ce060607_0_0.png){width=100%}
 
 These elements all work together to run the workflow – the container’s role is to control all of the code packages and dependencies used to run the workflow’s WDL script. This is called “**containerization**.”
 
@@ -53,7 +58,7 @@ Docker containers have two main components:
 
 In addition, a **registry** (e.g., DockerHub) is used to share Docker images with others, and to make your Docker image accessible from the Cloud (e.g., in AnVIL-powered-by-Terra).
 
-![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g278ce060607_0_8.png)<!-- -->
+![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g278ce060607_0_8.png){width=100%}
 
 ### Using Docker containers in your workflow
 
@@ -106,15 +111,15 @@ We will start with a repository created for the ITN course [Intro to Reproducibi
 
 First, fork the [reproducible-R-example](https://github.com/jhudsl/reproducible-R-example) repository.
 
-![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_177.png)<!-- -->
+![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_177.png){width=100%}
 
 Your new repository must be configured with the proper credentials (referred to as [Actions secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) by GitHub) to push an image to Docker Hub.  Follow the [OTTR Project instructions](https://www.ottrproject.org/customize-docker.html#Set_Dockerhub_related_secrets)) to set `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN`.
 
-![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g158d610a26d_0_3.png)<!-- -->
+![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g158d610a26d_0_3.png){width=100%}
 
 Update the `.github/workflows/docker-management.yml` file with your Docker Hub username and repository.  For example, change `jhudsl/reproducible-r` to `my_username/my_repository`.  Note that you need to change this on both line 53 and line 71.
 
-![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g158d610a26d_0_8.png)<!-- -->
+![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g158d610a26d_0_8.png){width=100%}
 
 This `docker-management.yml` file points Docker toward the correct Docker image file and links your GitHub repository with your Docker account. 
 
@@ -137,7 +142,7 @@ RUN conda install -y samtools
 
 Run the GitHub Action by navigating to the Actions tab, selecting Docker management, and clicking on Run workflow.  Note that you must change `Push to Dockerhub?` to true.
 
-![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g158d610a26d_0_20.png)<!-- -->
+![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g158d610a26d_0_20.png){width=100%}
 
 ::: {.warning}
 You **must** change `Push to Dockerhub?` to true for your Docker image to be pushed to Docker Hub.
@@ -193,7 +198,7 @@ Once you’ve exported the workflow to your AnVIL-powered-by-Terra workspace, op
 
 Select “Run workflow(s) with inputs defined by data table”, select the “bam” table, and select one row of the data table for a test run.
 
-![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g158d610a26d_0_26.png)<!-- -->
+![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g158d610a26d_0_26.png){width=100%}
 
 Fill in the column that stores the path to the input bam file (this.file_path).
 
