@@ -1,3 +1,7 @@
+```{r}
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 # Write WDL
 
 Now that you've successfully run a Workflow on AnVIL-powered-by-Terra, this tutorial demonstrates how you can create and edit a WDL using the [Broad Methods Repository](https://portal.firecloud.org/?return=anvil#methods).

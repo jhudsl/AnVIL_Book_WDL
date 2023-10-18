@@ -1,3 +1,7 @@
+```{r}
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 # Calculate idxstats on multiple files
 
 Now that you’ve successfully written an introductory WDL, this chapter demonstrates how WDL Workflows can easily perform an analysis across multiple genomic data files.

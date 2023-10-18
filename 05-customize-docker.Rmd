@@ -1,3 +1,7 @@
+```{r}
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 # Customize Docker
 
 Having run a workflow, written a WDL, and localized a file, let's now build a custom Docker image.

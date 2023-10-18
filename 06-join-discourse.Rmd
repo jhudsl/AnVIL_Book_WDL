@@ -1,3 +1,7 @@
+```{r}
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 # Join Discourse
 
 Congratulations!  You've practiced running WDL Workflows on AnVIL-powered-by-Terra, importing and configuring publicly available WDL workflows, writing an introductory WDL using the web-based editor at Broad Methods Repository, calculating idxstats across multiple genomic data files, and customizing your own Docker image.
