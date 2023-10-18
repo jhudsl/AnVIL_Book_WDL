@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2023-10-10" />
+<meta name="date" content="2023-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -77,6 +77,8 @@
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#skills-level"><i class="fa fa-check"></i>Skills Level</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#timing"><i class="fa fa-check"></i>Timing</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#branding"><i class="fa fa-check"></i>Branding</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#anvil-collection"><i class="fa fa-check"></i>AnVIL Collection</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="review-workflows-on-anvil-powered-by-terra.html"><a href="review-workflows-on-anvil-powered-by-terra.html"><i class="fa fa-check"></i><b>1</b> Review Workflows on AnVIL-powered-by-Terra</a>
@@ -224,7 +226,7 @@ More information about making Docker images can be found in <a href="https://sup
 <p>These elements all work together to run the workflow – the container’s role is to control all of the code packages and dependencies used to run the workflow’s WDL script. This is called “<strong>containerization</strong>.”</p>
 <div id="why-is-containerization-helpful" class="section level3" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Why is containerization helpful?</h3>
-<p>Containerization makes it easier to reproduce workflow analyses. For example, if two collaborators are analyzing the same data using different versions of Python, they might get different results. Containerization controls the environments in which you’re running these analyses, saving you from puzzling over incompatible results. Containerization can also ensure that other researchers can replicate your results and apply your tools to their own data. Containerization is even helpful when re-running old code – if your code packages have automatically updated since you last ran the code, using a container may save your code from breaking.</p>
+<p>Containerization makes it easier to reproduce workflow analyses. For example, if two collaborators are analyzing the same data using different versions of Python, they might get different results. Containerization controls the environments in which you’re running these analyses, saving you from puzzling over incompatible results. Containerization can also ensure that other researchers can replicate your results and apply your tools to their own data. Containerization is even helpful when re-running old code – if your code packages have automatically updated since you last ran the code, using a container may prevent your code from breaking.</p>
 </div>
 <div id="docker-containers" class="section level3" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Docker containers</h3>
@@ -234,13 +236,13 @@ More information about making Docker images can be found in <a href="https://sup
 <li>A <strong>Docker file</strong> that defines the container’s dependencies, environment variables, file system, and applications.</li>
 <li>A <strong>Docker image</strong> that builds and runs a container, which contains everything defined in the Docker file.</li>
 </ol>
-<p>In addition, a <strong>registry</strong> (e.g., DockerHub) is used to share Docker images with others, and to make your Docker image accessible from the Cloud (e.g., in Terra).</p>
+<p>In addition, a <strong>registry</strong> (e.g., DockerHub) is used to share Docker images with others, and to make your Docker image accessible from the Cloud (e.g., in AnVIL-powered-by-Terra).</p>
 <p><img src="05-customize-docker_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g278ce060607_0_8.png" width="480" /></p>
 </div>
 <div id="using-docker-containers-in-your-workflow" class="section level3" number="5.2.3">
 <h3><span class="header-section-number">5.2.3</span> Using Docker containers in your workflow</h3>
-<p>A workflow’s container constrains the code that you can write in the WDL script; for example, a WDL script with Python commands must be run in a container that includes Python. So, how can you ensure that you’re using the right container on Terra?</p>
-<p>To direct Terra toward the correct container, specify the container’s image in the WDL script. We already did this in the exercise from Chapter 3, by including a “docker” variable in the “runtime” section of the task definition:</p>
+<p>A workflow’s container constrains the code that you can write in the WDL script; for example, a WDL script with Python commands must be run in a container that includes Python. So, how can you ensure that you’re using the right container on AnVIL-powered-by-Terra?</p>
+<p>To direct AnVIL-powered-by-Terra toward the correct container, specify the container’s image in the WDL script. We already did this in the exercise from Chapter 3, by including a “docker” variable in the “runtime” section of the task definition:</p>
 <pre><code>  runtime {
    docker: &#39;ubuntu:latest&#39;
   }</code></pre>
@@ -263,7 +265,7 @@ More information about making Docker images can be found in <a href="https://sup
 </div>
 <div id="dockerbio" class="section level3" number="5.3.3">
 <h3><span class="header-section-number">5.3.3</span> DockerBIO</h3>
-<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6266945">DockerBIO</a> is a Java web application that focuses on Docker images for bioinformatics analyses.This approach requires a bit more setup, but can make it easier to find an image that’s relevant to your work.</p>
+<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6266945">DockerBIO</a> is a Java web application that focuses on Docker images for bioinformatics analyses. This approach requires a bit more setup, but can make it easier to find an image that’s relevant to your work.</p>
 </div>
 <div id="next-steps" class="section level3" number="5.3.4">
 <h3><span class="header-section-number">5.3.4</span> Next steps</h3>
@@ -345,7 +347,7 @@ task idxstats {
 <p>Select “Run workflow(s) with inputs defined by data table”, select the “bam” table, and select one row of the data table for a test run.</p>
 <p><img src="05-customize-docker_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g158d610a26d_0_26.png" width="480" /></p>
 <p>Fill in the column that stores the path to the input bam file (this.file_path).</p>
-<p>In the Outputs tab, give the output column a name by typing this.COLUMN_NAME (ex. this.idxstats_output).</p>
+<p>In the Outputs tab, give the output column a name by typing this.COLUMN_NAME (for example, this.idxstats_output).</p>
 <p>Then click “run” to run the workflow, and monitor its progress. Once the workflow has finished running, you should see a new column in the “bam” table with a link to a .txt file with the QC metrics output by the workflow.</p>
 </div>
 <div id="best-practices-for-using-docker" class="section level2" number="5.8">
@@ -360,8 +362,8 @@ task idxstats {
 <h2><span class="header-section-number">5.9</span> Further Reading</h2>
 <p>If you’re interested in a deeper dive into this chapter’s topics, check out these optional articles:</p>
 <ul>
-<li>To learn more about how to use Docker to create and store images, read 1<a href="https://support.terra.bio/hc/en-us/articles/360037340472-Docker-container-overview">Docker/container overview</a></li>
-<li>For information on using Docker to develop images locally, read <a href="https://support.terra.bio/hc/en-us/articles/360036000631-How-to-install-Docker-and-test-that-it-works">how to install docker and test that it works</a></li>
+<li>To learn more about how to use Docker to create and store images, read <a href="https://support.terra.bio/hc/en-us/articles/360037340472-Docker-container-overview">Docker/container overview</a>.</li>
+<li>For information on using Docker to develop images locally, read <a href="https://support.terra.bio/hc/en-us/articles/360036000631-How-to-install-Docker-and-test-that-it-works">how to install docker and test that it works</a>.</li>
 <li><a href="https://support.terra.bio/hc/en-us/articles/360036007791-How-to-run-GATK-in-a-Docker-container">How to run GATK in a Docker container</a></li>
 <li><a href="https://support.terra.bio/hc/en-us/articles/4409141003547-Docker-Image-Publishers-Tips">Docker Image Publishers’ Tips</a></li>
 </ul>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2023-10-10" />
+<meta name="date" content="2023-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -77,6 +77,8 @@
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#skills-level"><i class="fa fa-check"></i>Skills Level</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#timing"><i class="fa fa-check"></i>Timing</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#branding"><i class="fa fa-check"></i>Branding</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#anvil-collection"><i class="fa fa-check"></i>AnVIL Collection</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="review-workflows-on-anvil-powered-by-terra.html"><a href="review-workflows-on-anvil-powered-by-terra.html"><i class="fa fa-check"></i><b>1</b> Review Workflows on AnVIL-powered-by-Terra</a>
@@ -216,9 +218,9 @@ This workspace contains a Data Table named <code>sample</code> which contains re
 </ul>
 <p>Start by <a href="https://drive.google.com/file/d/1OH4L5LQNquDhNvycRHzWVH6Z1HR5R7kD">downloading the template script</a> shown below. Open it in a text editor and modify it to call <code>samtools idxstats</code> on a bam file.</p>
 <pre><code>version 1.0
-workflow SamtoolsMetrics {
+workflow samtoolsIdxstats {
   input {
-    File inputBam 
+    File bamfile 
   }
   call  {
     input: 
@@ -279,7 +281,7 @@ task idxstats {
     File idxstats = &quot;idxstats.txt&quot;
   }
   runtime {
-  disks: &#39;local-disk 50 HDD&#39;
+    disks: &#39;local-disk 50 HDD&#39;
     docker: &#39;ekiernan/wdl-101:v1&#39;
   }
 }</code></pre>

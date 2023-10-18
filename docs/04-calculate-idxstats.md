@@ -36,9 +36,9 @@ Start by [downloading the template script](https://drive.google.com/file/d/1OH4L
 
 ```
 version 1.0
-workflow SamtoolsMetrics {
+workflow samtoolsIdxstats {
   input {
-    File inputBam 
+    File bamfile 
   }
   call  {
     input: 
@@ -106,7 +106,7 @@ task idxstats {
     File idxstats = "idxstats.txt"
   }
   runtime {
-  disks: 'local-disk 50 HDD'
+    disks: 'local-disk 50 HDD'
     docker: 'ekiernan/wdl-101:v1'
   }
 }
