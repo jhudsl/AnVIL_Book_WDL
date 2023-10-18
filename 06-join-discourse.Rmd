@@ -1,6 +1,6 @@
 # Join Discourse
 
-Congratulations!  You've practiced running WDL Workflows on Terra-powered-by-AnVIL, importing and configuring publicly available WDL workflows, writing an introductory WDL using the web-based editor at Broad Methods Repository, calculating idxstats across multiple genomic data files, and customizing your own Docker image.
+Congratulations!  You've practiced running WDL Workflows on AnVIL-powered-by-Terra, importing and configuring publicly available WDL workflows, writing an introductory WDL using the web-based editor at Broad Methods Repository, calculating idxstats across multiple genomic data files, and customizing your own Docker image.
 
 Please take 5 minutes to let us know how we could improve this course at http://broad.io/wdlBookSurvey.
 
