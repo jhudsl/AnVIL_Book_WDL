@@ -40,7 +40,7 @@ These elements all work together to run the workflow – the container’s role 
 
 ### Why is containerization helpful?
 
-Containerization makes it easier to reproduce workflow analyses. For example, if two collaborators are analyzing the same data using different versions of Python, they might get different results. Containerization controls the environments in which you’re running these analyses, saving you from puzzling over incompatible results. Containerization can also ensure that other researchers can replicate your results and apply your tools to their own data. Containerization is even helpful when re-running old code – if your code packages have automatically updated since you last ran the code, using a container may save your code from breaking.
+Containerization makes it easier to reproduce workflow analyses. For example, if two collaborators are analyzing the same data using different versions of Python, they might get different results. Containerization controls the environments in which you’re running these analyses, saving you from puzzling over incompatible results. Containerization can also ensure that other researchers can replicate your results and apply your tools to their own data. Containerization is even helpful when re-running old code – if your code packages have automatically updated since you last ran the code, using a container may prevent your code from breaking.
 
 ### Docker containers
 
@@ -51,15 +51,15 @@ Docker containers have two main components:
 1. A **Docker file** that defines the container’s dependencies, environment variables, file system, and applications.
 1. A **Docker image** that builds and runs a container, which contains everything defined in the Docker file.
 
-In addition, a **registry** (e.g., DockerHub) is used to share Docker images with others, and to make your Docker image accessible from the Cloud (e.g., in Terra).
+In addition, a **registry** (e.g., DockerHub) is used to share Docker images with others, and to make your Docker image accessible from the Cloud (e.g., in AnVIL-powered-by-Terra).
 
 ![](05-customize-docker_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g278ce060607_0_8.png)<!-- -->
 
 ### Using Docker containers in your workflow
 
-A workflow’s container constrains the code that you can write in the WDL script; for example, a WDL script with Python commands must be run in a container that includes Python. So, how can you ensure that you’re using the right container on Terra?
+A workflow’s container constrains the code that you can write in the WDL script; for example, a WDL script with Python commands must be run in a container that includes Python. So, how can you ensure that you’re using the right container on AnVIL-powered-by-Terra?
 
-To direct Terra toward the correct container, specify the container’s image in the WDL script. We already did this in the exercise from Chapter 3, by including a "docker" variable in the "runtime" section of the task definition:
+To direct AnVIL-powered-by-Terra toward the correct container, specify the container’s image in the WDL script. We already did this in the exercise from Chapter 3, by including a "docker" variable in the "runtime" section of the task definition:
 
 ```
   runtime {
@@ -89,7 +89,7 @@ A good first step is to search for “Docker image” and the name of the softwa
 
 ### DockerBIO
 
-[DockerBIO](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6266945) is a Java web application that focuses on Docker images for bioinformatics analyses.This approach requires a bit more setup, but can make it easier to find an image that’s relevant to your work.
+[DockerBIO](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6266945) is a Java web application that focuses on Docker images for bioinformatics analyses. This approach requires a bit more setup, but can make it easier to find an image that’s relevant to your work.
 
 ### Next steps
 
@@ -197,7 +197,7 @@ Select “Run workflow(s) with inputs defined by data table”, select the “ba
 
 Fill in the column that stores the path to the input bam file (this.file_path).
 
-In the Outputs tab, give the output column a name by typing this.COLUMN_NAME (ex. this.idxstats_output).
+In the Outputs tab, give the output column a name by typing this.COLUMN_NAME (for example, this.idxstats_output).
 
 Then click “run” to run the workflow, and monitor its progress. Once the workflow has finished running, you should see a new column in the "bam" table with a link to a .txt file with the QC metrics output by the workflow.
 
@@ -212,7 +212,7 @@ The WDL Analysis Research Pipelines (WARP) [GitHub page](https://github.com/broa
 
 If you’re interested in a deeper dive into this chapter’s topics, check out these optional articles:
 
-- To learn more about how to use Docker to create and store images, read 1[Docker/container overview](https://support.terra.bio/hc/en-us/articles/360037340472-Docker-container-overview)
-- For information on using Docker to develop images locally, read [how to install docker and test that it works](https://support.terra.bio/hc/en-us/articles/360036000631-How-to-install-Docker-and-test-that-it-works)
+- To learn more about how to use Docker to create and store images, read [Docker/container overview](https://support.terra.bio/hc/en-us/articles/360037340472-Docker-container-overview).
+- For information on using Docker to develop images locally, read [how to install docker and test that it works](https://support.terra.bio/hc/en-us/articles/360036000631-How-to-install-Docker-and-test-that-it-works).
 - [How to run GATK in a Docker container](https://support.terra.bio/hc/en-us/articles/360036007791-How-to-run-GATK-in-a-Docker-container)
 - [Docker Image Publishers' Tips](https://support.terra.bio/hc/en-us/articles/4409141003547-Docker-Image-Publishers-Tips)

@@ -10,7 +10,7 @@ In addition to covering the growing [Dockstore](https://dockstore.org) community
 
 ## Importing workflows into AnVIL-powered-by-Terra
 
-The Chapter 1 review exercise covers how to run a workflow that was included in a cloned AnVIL-powered-by-Terra workspace. But what if you want to add a new workflow into your workspace, without writing it yourself?
+Chapter 1's review exercise covers how to run a workflow that was included in a cloned AnVIL-powered-by-Terra workspace. But what if you want to add a new workflow into your workspace, without writing it yourself?
 
 There are three ways to import workflows into an AnVIL-powered-by-Terra workspace:
 
@@ -52,7 +52,7 @@ To pre-configure a workflow, you can upload a file that specifies the default va
 
 ### Optional practice: pre-configure a workflow
 
-To pre-configure a workflow from that you have imported to your workspace, upload a JSON file.
+To pre-configure a workflow that you have imported to your workspace, upload a JSON file.
 
 An easy way to do this is to download a JSON file from an existing workflow, edit it, and upload the edited version to the workflow that you’re trying to configure.
 
@@ -60,7 +60,7 @@ To practice this, open the **easy-puzzle-solved** workflow in your clone of the 
 
 ![](02-import-configure_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_24.png)<!-- -->
 
-Open the JSON file in a text editor. It should look something like this, since the last time you ran it your input was “Marie Curie”:
+Open the JSON file in a text editor. It should look something like this, if the last time you ran it your input was “Marie Curie”:
 
 ```
 {"HelloInput.name":"Marie Curie"}
@@ -70,7 +70,7 @@ Edit the file to set the input name to your name, instead of Marie Curie. Save t
 
 ![](02-import-configure_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_30.png)<!-- -->
 
-The input for the “name” variable should now be set to your name. Be sure to click Save to ensure that this change persists the next time you open the workflow.
+The input for the “name” variable should now be set to your name. Be sure to **click Save** to ensure that this change persists the next time you open the workflow.
 
 ### A few notes on syntax
 
@@ -88,7 +88,7 @@ If your inputs will come from a data table, specify them like this:
 
 ### Importing a pre-configured workflow
 
-In some cases, the workflow’s authors have provided a configuration file, and you can export this file to AnVIL-powered-by-Terra along with the workflow rather than uploading the JSON file yourself. See [How to import a workflow and its parameter file from Dockstore into Terra](https://support.terra.bio/hc/en-us/articles/360038137292) and [Create, edit, and share a new workflow](https://support.terra.bio/hc/en-us/articles/360031366091) (steps 1.6-1.7) for instructions on how to do this for a workflow in Dockstore or the Broad Methods Repository.
+In some cases, the workflow’s authors have provided a configuration file, and you can export this file to AnVIL-powered-by-Terra along with the workflow, rather than uploading the JSON file yourself. See [How to import a workflow and its parameter file from Dockstore into Terra](https://support.terra.bio/hc/en-us/articles/360038137292) and [Create, edit, and share a new workflow](https://support.terra.bio/hc/en-us/articles/360031366091) (steps 1.6-1.7) for instructions on how to do this for a workflow in Dockstore or the Broad Methods Repository.
 
 ### More information
 
@@ -100,7 +100,7 @@ If you’re interested in a deeper dive into this chapter’s topics, check out 
 
 - For more information on how to monitor your workflow, read [What to expect when you submit a workflow](https://support.terra.bio/hc/en-us/articles/7093972754971).
 - To learn about the costs involved in running workflows, read [How much did my workflow cost?](https://support.terra.bio/hc/en-us/articles/360037862771)
-- For customizing the compute resources used to run your workflow, read [Workflow setup: VM and other options](https://support.terra.bio/hc/en-us/articles/360026521831)
-- For more detail on importing workflows from Dockstore, read [How to import a workflow and its parameter file from Dockstore into Terra](https://support.terra.bio/hc/en-us/articles/360038137292)
-- For more detail on importing workflows from the Broad Methods Repository, read [Finding the workflow (method) you need (and its JSON) in the Methods Repository](https://support.terra.bio/hc/en-us/articles/360025674392)
-- To learn how to host and share a workflow through the Broad Methods Repository, read [Create, edit, and share a new workflow](https://support.terra.bio/hc/en-us/articles/360031366091)
+- For customizing the compute resources used to run your workflow, read [Workflow setup: VM and other options](https://support.terra.bio/hc/en-us/articles/360026521831).
+- For more detail on importing workflows from Dockstore, read [How to import a workflow and its parameter file from Dockstore into Terra](https://support.terra.bio/hc/en-us/articles/360038137292).
+- For more detail on importing workflows from the Broad Methods Repository, read [Finding the workflow (method) you need (and its JSON) in the Methods Repository](https://support.terra.bio/hc/en-us/articles/360025674392).
+- To learn how to host and share a workflow through the Broad Methods Repository, read [Create, edit, and share a new workflow](https://support.terra.bio/hc/en-us/articles/360031366091).

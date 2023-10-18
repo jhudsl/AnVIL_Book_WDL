@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2023-10-10" />
+<meta name="date" content="2023-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -77,6 +77,8 @@
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#skills-level"><i class="fa fa-check"></i>Skills Level</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#timing"><i class="fa fa-check"></i>Timing</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#branding"><i class="fa fa-check"></i>Branding</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#anvil-collection"><i class="fa fa-check"></i>AnVIL Collection</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="review-workflows-on-anvil-powered-by-terra.html"><a href="review-workflows-on-anvil-powered-by-terra.html"><i class="fa fa-check"></i><b>1</b> Review Workflows on AnVIL-powered-by-Terra</a>
@@ -188,21 +190,21 @@
 </div>
 <div id="write-wdl" class="section level1" number="3">
 <h1><span class="header-section-number">Chapter 3</span> Write WDL</h1>
-<p>Now that you’ve successfully run a Workflow on AnVIL, this tutorial demonstrates how you can create and edit a WDL using the <a href="https://portal.firecloud.org/?return=anvil#methods">Broad Methods Repository</a>.
-While this “legacy” Methods repository does not have many of the features present in the open-source <a href="https://anvilproject.org/overview#platform-interoperability">Dockstore</a> platform, it does offer a convenient web-based editor for demonstration purposes.
+<p>Now that you’ve successfully run a Workflow on AnVIL-powered-by-Terra, this tutorial demonstrates how you can create and edit a WDL using the <a href="https://portal.firecloud.org/?return=anvil#methods">Broad Methods Repository</a>.
+While this “legacy” Methods repository does not have many of the features present in the open-source <a href="https://dockstore.org/">Dockstore</a> platform, it does offer a convenient web-based editor.
 This material is adapted from the <a href="https://support.terra.bio/hc/en-us/articles/8693717360411">WDL 101 Workshop</a>;
 you can read about other ways the Broad Methods Repository can be used in <a href="https://support.terra.bio/hc/en-us/articles/360031366091">this Terra Support article</a>.</p>
 <p><strong>Learning Objectives</strong></p>
 <ol style="list-style-type: decimal">
 <li>Access Broad Methods Repository</li>
-<li>Write WDL101 Training Example</li>
-<li>Export to Terra and run</li>
+<li>Write a basic “hello-world” WDL</li>
+<li>Export WDL to AnVIL-powered-by-Terra and run it</li>
 </ol>
 <div id="access-broad-methods-repository" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Access Broad Methods Repository</h2>
 <p>Let’s start by navigating to the <a href="https://app.terra.bio/#workspaces/help-gatk/WDL-puzzles">WDL-puzzles workspace</a> on AnVIL-powered-by-Terra.
 If you completed the review exercise in Chapter 1, you already cloned this workspace. If not, clone it to create your own copy.
-Please double check your workspace name to ensure that this is the copy that you made rather than the original as you will not be able to use the original workspace to create a new WDL or run a workflow.</p>
+Please <strong>double check your workspace name</strong> to ensure that this is the copy that you made rather than the original as you will not be able to use the original workspace to create a new WDL or run a workflow.</p>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_185.png" width="480" /></p>
 <p>Once you’ve double checked that you are in a workspace that you can modify and compute, click on the Workflows tab.</p>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_27.png" width="480" /></p>
@@ -213,7 +215,7 @@ Please double check your workspace name to ensure that this is the copy that you
 <p>Click Create New Method.</p>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_11.png" width="480" /></p>
 <p>Add a namespace to the first text box to organize your WDLs.
-Your username (prepended with your lab name) is a reasonable namespace as this must be unique across all of Broad Methods Repository.
+Your username (perhaps prepended with your lab name) is a reasonable namespace as this must be unique across all of Broad Methods Repository.
 Afterwards, add a name such as <code>wdl101</code> to name your WDL.</p>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_16.png" width="480" /></p>
 </div>
@@ -226,18 +228,18 @@ Tasks are written in the Workflow Description Language (<strong>WDL</strong>, pr
 <ol style="list-style-type: decimal">
 <li><strong>Input</strong> - defines the inputs that the task expects and their types.</li>
 <li><strong>Command</strong> - uses bash commands to call software tools (e.g., Python) to transform the input data.</li>
-<li><strong>Runtime</strong> - specifies the Docker container in which the workflow will run – we’ll discuss this more in Chapter 4.</li>
+<li><strong>Runtime</strong> - specifies the Docker container in which the workflow will run – we’ll discuss this more in Chapter 5.</li>
 <li><strong>Output</strong> - defines the output variable(s) that the transformed data will be written to.</li>
 </ol>
 <p>The <strong>workflow definition</strong> strings together the workflow’s tasks:</p>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g28b2946aa7c_7_13.png" width="480" /></p>
-<p>In this example, the workflow called “MyWorkflowName” calls two tasks (“task_A” and “task_B”). The workflow starts with an <strong>input section</strong>, just as the tasks do. It then calls each of the tasks, using the output from prior tasks as the inputs for subsequent tasks. Finally, workflows often include an <strong>output</strong> section.</p>
+<p>In this example, the workflow called “MyWorkflowName” calls two tasks (“task_A” and “task_B”). The workflow starts with an <strong>input section</strong>, just as the tasks do. It then calls each of the tasks, using the output from prior tasks as the inputs for subsequent tasks. Finally, workflows often include an <strong>output</strong> section (although the example above does not).</p>
 <p>The workflow definition and task scripts can be written in separate WDL scripts or combined into a single script (as shown in this example).</p>
 </div>
 <div id="write-a-hello-input-wdl" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Write a hello-input WDL</h2>
 <p>Let’s now create a basic WDL!
-This simple “Hello, World!” style workflow will take as input a string, call a single task, and save the output of that task to your workspace bucket.
+This simple “Hello, World!” style workflow will take a string as input, call a single task, and save the output of that task to your workspace bucket.
 The task that is called will run the <a href="https://swcarpentry.github.io/shell-novice/01-intro.html">Bash</a> <code>echo</code> command to print the input string to <code>stdout</code>.</p>
 <p>First note that we are using the <a href="https://github.com/openwdl/wdl/tree/main/versions">WDL 1.0 spec</a>.</p>
 <pre><code>version 1.0</code></pre>
@@ -308,7 +310,7 @@ task WriteGreeting {
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_50.png" width="480" /></p>
 <p>Select a Destination Workspace such as your clone of WDL-puzzles. Afterwards, click Export to Workspace.</p>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_55.png" width="480" /></p>
-<p>Lastly, configure your Workflow as your did previously (e.g. inputs defined by file paths, name in double quotes), click Save, and then click Run Analysis.</p>
+<p>Lastly, configure your Workflow as you did in Chapter 1 (e.g. inputs defined by file paths, name in double quotes), click Save, and then click Run Analysis.</p>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_60.png" width="480" /></p>
 <p>Voila! Here’s what you hopefully see after successfully running your WDL101 Training Example !</p>
 <p><img src="03-write-wdl_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g139bf26eaed_0_65.png" width="480" /></p>

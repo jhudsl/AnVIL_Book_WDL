@@ -1,6 +1,6 @@
 ---
 title: "WDL Workflows"
-date: "October 10, 2023"
+date: "October 18, 2023"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -15,7 +15,7 @@ output:
 
 # Overview {-}
 
-This book introduces WDL Workflows on AnVIL.  After introducing several concepts, including basic WDL syntax, we present hands-on exercises to run a workflow, write a WDL, localize a file, customize a Docker image, and join the Discourse.  No local software installation is required as each exercise leverages web-based resources.
+This book introduces WDL Workflows on AnVIL-powered-by-Terra.  After introducing several concepts, including basic WDL syntax, we present hands-on exercises to run a workflow, write a WDL, localize a file, customize a Docker image, and join the Discourse.  No local software installation is required as each exercise leverages web-based resources.
 
 ![](index_files/figure-docx//1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g1397c25e58c_0_2.png)<!-- -->
 
@@ -32,11 +32,17 @@ _Programming skills_
 ## Learning Objectives {-}
 
 - Understand when WDL Workflows are the right tool
-- Run a Workflow on AnVIL
+- Run a Workflow on AnVIL-powered-by-Terra
 - Write a WDL using Broad Methods Repository
 - Bring your own data to analyze
 - Customize your Docker environment
 - Join the conversation
+
+## Timing {-}
+It should take approximately 1.5-2 hours to complete this course, including hands-on exercises.
+
+## Branding {-}
+Due to differences in branding, some of the screenshots shown in this course may include different logos and colors than what you see on Terra. However, the same functions and menus are available regardless of whether you’re using AnVIL-powered-by-Terra, classic Terra, or another version of the platform.
 
 ## AnVIL Collection {-}
 

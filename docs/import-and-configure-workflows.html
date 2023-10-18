@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2023-10-10" />
+<meta name="date" content="2023-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -77,6 +77,8 @@
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#skills-level"><i class="fa fa-check"></i>Skills Level</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#timing"><i class="fa fa-check"></i>Timing</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#branding"><i class="fa fa-check"></i>Branding</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#anvil-collection"><i class="fa fa-check"></i>AnVIL Collection</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="review-workflows-on-anvil-powered-by-terra.html"><a href="review-workflows-on-anvil-powered-by-terra.html"><i class="fa fa-check"></i><b>1</b> Review Workflows on AnVIL-powered-by-Terra</a>
@@ -197,7 +199,7 @@ In addition to covering the growing <a href="https://dockstore.org">Dockstore</a
 </ul>
 <div id="importing-workflows-into-anvil-powered-by-terra" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Importing workflows into AnVIL-powered-by-Terra</h2>
-<p>The Chapter 1 review exercise covers how to run a workflow that was included in a cloned AnVIL-powered-by-Terra workspace. But what if you want to add a new workflow into your workspace, without writing it yourself?</p>
+<p>Chapter 1’s review exercise covers how to run a workflow that was included in a cloned AnVIL-powered-by-Terra workspace. But what if you want to add a new workflow into your workspace, without writing it yourself?</p>
 <p>There are three ways to import workflows into an AnVIL-powered-by-Terra workspace:</p>
 <ul>
 <li>Dockstore</li>
@@ -230,15 +232,15 @@ In addition to covering the growing <a href="https://dockstore.org">Dockstore</a
 <p><img src="02-import-configure_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_18.png" width="480" /></p>
 <div id="optional-practice-pre-configure-a-workflow" class="section level3" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> Optional practice: pre-configure a workflow</h3>
-<p>To pre-configure a workflow from that you have imported to your workspace, upload a JSON file.</p>
+<p>To pre-configure a workflow that you have imported to your workspace, upload a JSON file.</p>
 <p>An easy way to do this is to download a JSON file from an existing workflow, edit it, and upload the edited version to the workflow that you’re trying to configure.</p>
 <p>To practice this, open the <strong>easy-puzzle-solved</strong> workflow in your clone of the WDL-puzzles workspace and download the JSON file:</p>
 <p><img src="02-import-configure_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_24.png" width="480" /></p>
-<p>Open the JSON file in a text editor. It should look something like this, since the last time you ran it your input was “Marie Curie”:</p>
+<p>Open the JSON file in a text editor. It should look something like this, if the last time you ran it your input was “Marie Curie”:</p>
 <pre><code>{&quot;HelloInput.name&quot;:&quot;Marie Curie&quot;}</code></pre>
 <p>Edit the file to set the input name to your name, instead of Marie Curie. Save the file, go back to your workflow and upload the edited JSON file by clicking the “Drag or click to upload json” link:</p>
 <p><img src="02-import-configure_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_30.png" width="480" /></p>
-<p>The input for the “name” variable should now be set to your name. Be sure to click Save to ensure that this change persists the next time you open the workflow.</p>
+<p>The input for the “name” variable should now be set to your name. Be sure to <strong>click Save</strong> to ensure that this change persists the next time you open the workflow.</p>
 </div>
 <div id="a-few-notes-on-syntax" class="section level3" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> A few notes on syntax</h3>
@@ -249,7 +251,7 @@ In addition to covering the growing <a href="https://dockstore.org">Dockstore</a
 </div>
 <div id="importing-a-pre-configured-workflow" class="section level3" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> Importing a pre-configured workflow</h3>
-<p>In some cases, the workflow’s authors have provided a configuration file, and you can export this file to AnVIL-powered-by-Terra along with the workflow rather than uploading the JSON file yourself. See <a href="https://support.terra.bio/hc/en-us/articles/360038137292">How to import a workflow and its parameter file from Dockstore into Terra</a> and <a href="https://support.terra.bio/hc/en-us/articles/360031366091">Create, edit, and share a new workflow</a> (steps 1.6-1.7) for instructions on how to do this for a workflow in Dockstore or the Broad Methods Repository.</p>
+<p>In some cases, the workflow’s authors have provided a configuration file, and you can export this file to AnVIL-powered-by-Terra along with the workflow, rather than uploading the JSON file yourself. See <a href="https://support.terra.bio/hc/en-us/articles/360038137292">How to import a workflow and its parameter file from Dockstore into Terra</a> and <a href="https://support.terra.bio/hc/en-us/articles/360031366091">Create, edit, and share a new workflow</a> (steps 1.6-1.7) for instructions on how to do this for a workflow in Dockstore or the Broad Methods Repository.</p>
 </div>
 <div id="more-information" class="section level3" number="2.2.4">
 <h3><span class="header-section-number">2.2.4</span> More information</h3>
@@ -262,10 +264,10 @@ In addition to covering the growing <a href="https://dockstore.org">Dockstore</a
 <ul>
 <li>For more information on how to monitor your workflow, read <a href="https://support.terra.bio/hc/en-us/articles/7093972754971">What to expect when you submit a workflow</a>.</li>
 <li>To learn about the costs involved in running workflows, read <a href="https://support.terra.bio/hc/en-us/articles/360037862771">How much did my workflow cost?</a></li>
-<li>For customizing the compute resources used to run your workflow, read <a href="https://support.terra.bio/hc/en-us/articles/360026521831">Workflow setup: VM and other options</a></li>
-<li>For more detail on importing workflows from Dockstore, read <a href="https://support.terra.bio/hc/en-us/articles/360038137292">How to import a workflow and its parameter file from Dockstore into Terra</a></li>
-<li>For more detail on importing workflows from the Broad Methods Repository, read <a href="https://support.terra.bio/hc/en-us/articles/360025674392">Finding the workflow (method) you need (and its JSON) in the Methods Repository</a></li>
-<li>To learn how to host and share a workflow through the Broad Methods Repository, read <a href="https://support.terra.bio/hc/en-us/articles/360031366091">Create, edit, and share a new workflow</a></li>
+<li>For customizing the compute resources used to run your workflow, read <a href="https://support.terra.bio/hc/en-us/articles/360026521831">Workflow setup: VM and other options</a>.</li>
+<li>For more detail on importing workflows from Dockstore, read <a href="https://support.terra.bio/hc/en-us/articles/360038137292">How to import a workflow and its parameter file from Dockstore into Terra</a>.</li>
+<li>For more detail on importing workflows from the Broad Methods Repository, read <a href="https://support.terra.bio/hc/en-us/articles/360025674392">Finding the workflow (method) you need (and its JSON) in the Methods Repository</a>.</li>
+<li>To learn how to host and share a workflow through the Broad Methods Repository, read <a href="https://support.terra.bio/hc/en-us/articles/360031366091">Create, edit, and share a new workflow</a>.</li>
 </ul>
 
 </div>

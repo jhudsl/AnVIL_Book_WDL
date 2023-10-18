@@ -4,7 +4,7 @@ knitr::opts_chunk$set(out.width = "100%")
 
 # Review Workflows on AnVIL-powered-by-Terra
 
-This **review** chapter introduces several basic concepts when working with WDL Workflows.
+This **review** chapter introduces several basic concepts for working with WDL Workflows.
 The first part highlights considerations when using Docker container technology and provides an overview of the main sections in an example WDL workflow.
 The second part reviews how to run a basic workflow on AnVIL-powered-by-Terra.
 
