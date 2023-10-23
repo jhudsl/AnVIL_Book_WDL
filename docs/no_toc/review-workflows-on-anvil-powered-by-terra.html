@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Review Workflows on AnVIL-powered-by-Terra | WDL Workflows</title>
+  <meta name="description" content="Description about Course/Book." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 Review Workflows on AnVIL-powered-by-Terra | WDL Workflows" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Description about Course/Book." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Review Workflows on AnVIL-powered-by-Terra | WDL Workflows" />
+  
+  <meta name="twitter:description" content="Description about Course/Book." />
+  
+
+
+
+<meta name="date" content="2023-10-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/AnVIL_style/anvil_favicon.ico" type="image/x-icon" />
+<link rel="prev" href="index.html"/>
+<link rel="next" href="import-and-configure-workflows.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/AnVIL_style/anvil.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://anvilproject.org/" target="_blank"><img src="assets/AnVIL_style/logo-anvil.png" style="width: 80%; padding-left: 15px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#skills-level"><i class="fa fa-check"></i>Skills Level</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#timing"><i class="fa fa-check"></i>Timing</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#branding"><i class="fa fa-check"></i>Branding</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#anvil-collection"><i class="fa fa-check"></i>AnVIL Collection</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="review-workflows-on-anvil-powered-by-terra.html"><a href="review-workflows-on-anvil-powered-by-terra.html"><i class="fa fa-check"></i><b>1</b> Review Workflows on AnVIL-powered-by-Terra</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="review-workflows-on-anvil-powered-by-terra.html"><a href="review-workflows-on-anvil-powered-by-terra.html#optional-what-is-a-workflow"><i class="fa fa-check"></i><b>1.1</b> Optional: What is a workflow?</a></li>
+<li class="chapter" data-level="1.2" data-path="review-workflows-on-anvil-powered-by-terra.html"><a href="review-workflows-on-anvil-powered-by-terra.html#optional-running-a-workflow-on-anvil-powered-by-terra"><i class="fa fa-check"></i><b>1.2</b> Optional: Running a workflow on AnVIL-powered-by-Terra</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="review-workflows-on-anvil-powered-by-terra.html"><a href="review-workflows-on-anvil-powered-by-terra.html#clone-workspace"><i class="fa fa-check"></i><b>1.2.1</b> Clone Workspace</a></li>
+<li class="chapter" data-level="1.2.2" data-path="review-workflows-on-anvil-powered-by-terra.html"><a href="review-workflows-on-anvil-powered-by-terra.html#view-wdl"><i class="fa fa-check"></i><b>1.2.2</b> View WDL</a></li>
+<li class="chapter" data-level="1.2.3" data-path="review-workflows-on-anvil-powered-by-terra.html"><a href="review-workflows-on-anvil-powered-by-terra.html#configure-workflow"><i class="fa fa-check"></i><b>1.2.3</b> Configure Workflow</a></li>
+<li class="chapter" data-level="1.2.4" data-path="review-workflows-on-anvil-powered-by-terra.html"><a href="review-workflows-on-anvil-powered-by-terra.html#examine-output"><i class="fa fa-check"></i><b>1.2.4</b> Examine Output</a></li>
+<li class="chapter" data-level="1.2.5" data-path="review-workflows-on-anvil-powered-by-terra.html"><a href="review-workflows-on-anvil-powered-by-terra.html#watch-video"><i class="fa fa-check"></i><b>1.2.5</b> Watch Video</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="import-and-configure-workflows.html"><a href="import-and-configure-workflows.html"><i class="fa fa-check"></i><b>2</b> Import and Configure Workflows</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="import-and-configure-workflows.html"><a href="import-and-configure-workflows.html#importing-workflows-into-anvil-powered-by-terra"><i class="fa fa-check"></i><b>2.1</b> Importing workflows into AnVIL-powered-by-Terra</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="import-and-configure-workflows.html"><a href="import-and-configure-workflows.html#dockstore"><i class="fa fa-check"></i><b>2.1.1</b> Dockstore</a></li>
+<li class="chapter" data-level="2.1.2" data-path="import-and-configure-workflows.html"><a href="import-and-configure-workflows.html#broad-methods-repository"><i class="fa fa-check"></i><b>2.1.2</b> Broad Methods Repository</a></li>
+<li class="chapter" data-level="2.1.3" data-path="import-and-configure-workflows.html"><a href="import-and-configure-workflows.html#other-online-collections"><i class="fa fa-check"></i><b>2.1.3</b> Other online collections</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="import-and-configure-workflows.html"><a href="import-and-configure-workflows.html#configuring-workflows-with-json-files"><i class="fa fa-check"></i><b>2.2</b> Configuring workflows with JSON files</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="import-and-configure-workflows.html"><a href="import-and-configure-workflows.html#optional-practice-pre-configure-a-workflow"><i class="fa fa-check"></i><b>2.2.1</b> Optional practice: pre-configure a workflow</a></li>
+<li class="chapter" data-level="2.2.2" data-path="import-and-configure-workflows.html"><a href="import-and-configure-workflows.html#a-few-notes-on-syntax"><i class="fa fa-check"></i><b>2.2.2</b> A few notes on syntax</a></li>
+<li class="chapter" data-level="2.2.3" data-path="import-and-configure-workflows.html"><a href="import-and-configure-workflows.html#importing-a-pre-configured-workflow"><i class="fa fa-check"></i><b>2.2.3</b> Importing a pre-configured workflow</a></li>
+<li class="chapter" data-level="2.2.4" data-path="import-and-configure-workflows.html"><a href="import-and-configure-workflows.html#more-information"><i class="fa fa-check"></i><b>2.2.4</b> More information</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="import-and-configure-workflows.html"><a href="import-and-configure-workflows.html#further-reading"><i class="fa fa-check"></i><b>2.3</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="write-wdl.html"><a href="write-wdl.html"><i class="fa fa-check"></i><b>3</b> Write WDL</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="write-wdl.html"><a href="write-wdl.html#access-broad-methods-repository"><i class="fa fa-check"></i><b>3.1</b> Access Broad Methods Repository</a></li>
+<li class="chapter" data-level="3.2" data-path="write-wdl.html"><a href="write-wdl.html#wdl-script-structure"><i class="fa fa-check"></i><b>3.2</b> WDL Script Structure</a></li>
+<li class="chapter" data-level="3.3" data-path="write-wdl.html"><a href="write-wdl.html#write-a-hello-input-wdl"><i class="fa fa-check"></i><b>3.3</b> Write a hello-input WDL</a></li>
+<li class="chapter" data-level="3.4" data-path="write-wdl.html"><a href="write-wdl.html#export-to-anvil-powered-by-terra-and-run"><i class="fa fa-check"></i><b>3.4</b> Export to AnVIL-powered-by-Terra and run</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html"><i class="fa fa-check"></i><b>4</b> Calculate idxstats on multiple files</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#clone-data-workspace"><i class="fa fa-check"></i><b>4.1</b> Clone data workspace</a></li>
+<li class="chapter" data-level="4.2" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#write-an-idxstats-wdl"><i class="fa fa-check"></i><b>4.2</b> Write an idxstats WDL</a></li>
+<li class="chapter" data-level="4.3" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#optional-run-idxstats-wdl-on-multiple-.bam-files"><i class="fa fa-check"></i><b>4.3</b> Optional: Run idxstats WDL on multiple .bam files</a></li>
+<li class="chapter" data-level="4.4" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#customize-your-workflows-setup-with-wdl"><i class="fa fa-check"></i><b>4.4</b> Customize your Workflow’s Setup with WDL</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#memory-retry"><i class="fa fa-check"></i><b>4.4.1</b> Memory retry</a></li>
+<li class="chapter" data-level="4.4.2" data-path="calculate-idxstats-on-multiple-files.html"><a href="calculate-idxstats-on-multiple-files.html#localizing-files"><i class="fa fa-check"></i><b>4.4.2</b> Localizing files</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="customize-docker.html"><a href="customize-docker.html"><i class="fa fa-check"></i><b>5</b> Customize Docker</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="customize-docker.html"><a href="customize-docker.html#prerequisites"><i class="fa fa-check"></i><b>5.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="5.2" data-path="customize-docker.html"><a href="customize-docker.html#containerization-with-docker"><i class="fa fa-check"></i><b>5.2</b> Containerization with Docker</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="customize-docker.html"><a href="customize-docker.html#why-is-containerization-helpful"><i class="fa fa-check"></i><b>5.2.1</b> Why is containerization helpful?</a></li>
+<li class="chapter" data-level="5.2.2" data-path="customize-docker.html"><a href="customize-docker.html#docker-containers"><i class="fa fa-check"></i><b>5.2.2</b> Docker containers</a></li>
+<li class="chapter" data-level="5.2.3" data-path="customize-docker.html"><a href="customize-docker.html#using-docker-containers-in-your-workflow"><i class="fa fa-check"></i><b>5.2.3</b> Using Docker containers in your workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="customize-docker.html"><a href="customize-docker.html#using-a-published-docker-image-out-of-the-box"><i class="fa fa-check"></i><b>5.3</b> Using a Published Docker Image Out of the Box</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="customize-docker.html"><a href="customize-docker.html#google"><i class="fa fa-check"></i><b>5.3.1</b> Google</a></li>
+<li class="chapter" data-level="5.3.2" data-path="customize-docker.html"><a href="customize-docker.html#docker-hub-and-quay.io"><i class="fa fa-check"></i><b>5.3.2</b> Docker Hub and Quay.io</a></li>
+<li class="chapter" data-level="5.3.3" data-path="customize-docker.html"><a href="customize-docker.html#dockerbio"><i class="fa fa-check"></i><b>5.3.3</b> DockerBIO</a></li>
+<li class="chapter" data-level="5.3.4" data-path="customize-docker.html"><a href="customize-docker.html#next-steps"><i class="fa fa-check"></i><b>5.3.4</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="customize-docker.html"><a href="customize-docker.html#configure-github-actions"><i class="fa fa-check"></i><b>5.4</b> Configure GitHub Actions</a></li>
+<li class="chapter" data-level="5.5" data-path="customize-docker.html"><a href="customize-docker.html#build-docker-image"><i class="fa fa-check"></i><b>5.5</b> Build Docker image</a></li>
+<li class="chapter" data-level="5.6" data-path="customize-docker.html"><a href="customize-docker.html#use-your-image-with-the-idxstats-wdl"><i class="fa fa-check"></i><b>5.6</b> Use your image with the idxstats WDL</a></li>
+<li class="chapter" data-level="5.7" data-path="customize-docker.html"><a href="customize-docker.html#run-idxstats-workflow"><i class="fa fa-check"></i><b>5.7</b> Run idxstats workflow</a></li>
+<li class="chapter" data-level="5.8" data-path="customize-docker.html"><a href="customize-docker.html#best-practices-for-using-docker"><i class="fa fa-check"></i><b>5.8</b> Best practices for using Docker</a></li>
+<li class="chapter" data-level="5.9" data-path="customize-docker.html"><a href="customize-docker.html#further-reading-1"><i class="fa fa-check"></i><b>5.9</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="join-discourse.html"><a href="join-discourse.html"><i class="fa fa-check"></i><b>6</b> Join Discourse</a></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
+<a href="https://hutchdatascience.org/" target="_blank"><img src="https://raw.githubusercontent.com/jhudsl/OTTR_Template/main/style-sets/fhdasl/copy_to_assets/big-dasl-stacked.png" style="width: 80%; padding-left: 34px; padding-top: 8px;"</a>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/AK12iVXTjsB7yCUUA"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WDL Workflows</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/AnVIL_style/dasl_thin_main_image.png">
+</div>
+<div id="review-workflows-on-anvil-powered-by-terra" class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Review Workflows on AnVIL-powered-by-Terra</h1>
+<p>This <strong>review</strong> chapter introduces several basic concepts for working with WDL Workflows.
+The first part highlights considerations when using Docker container technology and provides an overview of the main sections in an example WDL workflow.
+The second part reviews how to run a basic workflow on AnVIL-powered-by-Terra.</p>
+<p>You can skip to Chapter 2 if you are already familiar with these topics (e.g., if you’ve successfully completed the “<a href="https://leanpub.com/universities/courses/terra/pipelining">Intro to workflows on Terra</a>” Leanpub course or have run a workflow before).</p>
+<p><strong>Learning Objectives</strong></p>
+<ol style="list-style-type: decimal">
+<li>Identify the four parts of WDL workflows on AnVIL-powered-by-Terra</li>
+<li>Understand how Docker improves reproducibility</li>
+<li>Overview of basic WDL syntax</li>
+<li>Know how to find and configure Workflows</li>
+<li>Import a WDL by cloning a Workspace</li>
+<li>Run a workflow using AnVIL-powered-by-Terra</li>
+<li>Examine a workflow’s output</li>
+</ol>
+<div id="optional-what-is-a-workflow" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Optional: What is a workflow?</h2>
+<iframe src="https://drive.google.com/file/d/1zVHjpR59dlF1NvGxWf88NIkvFuDDd3IW/preview" width="640" height="360" allow="autoplay">
+</iframe>
+<p>These slides are adapted from the <a href="https://support.terra.bio/hc/en-us/articles/8693717360411">WDL 101 Workshop</a> (see <a href="https://zenodo.org/record/7062397#.YyM-vy1h1qu">this Bioinformática UFMG presentation</a> for more information).
+You can view and download the Google Slides <a href="https://docs.google.com/presentation/d/1Dioe_Qd3hdJ0UAP4LA6gJsm07Lr1wRpax5FLYr6xU3M">here</a>.</p>
+</div>
+<div id="optional-running-a-workflow-on-anvil-powered-by-terra" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Optional: Running a workflow on AnVIL-powered-by-Terra</h2>
+<p>This optional exercise provides a review of how to run a workflow on AnVIL-powered-by-Terra.
+It uses the fun and accessible <a href="https://support.terra.bio/hc/en-us/articles/360056599991">WDL puzzles</a> workspace to run a “Hello, World!” style workflow.
+By showcasing how input parameters are specified and where output files can be found, this exercise helps provide context before writing your own WDL Workflow.</p>
+<div id="clone-workspace" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Clone Workspace</h3>
+<p>Clone the <a href="https://app.terra.bio/#workspaces/help-gatk/WDL-puzzles">WDL-puzzles</a> workspace</p>
+<p><img src="01-introduction_files/figure-html/1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_33.png" width="100%" /></p>
+</div>
+<div id="view-wdl" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> View WDL</h3>
+<p>View the <strong>easy-puzzle-solved</strong> WDL script by opening the workflow in the Broad Methods Repository</p>
+<p><img src="01-introduction_files/figure-html/1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_58.png" width="100%" /></p>
+</div>
+<div id="configure-workflow" class="section level3" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Configure Workflow</h3>
+<p>Configure and run the <strong>easy-puzzle-solved</strong> workflow</p>
+<p><img src="01-introduction_files/figure-html/1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_73.png" width="100%" /></p>
+</div>
+<div id="examine-output" class="section level3" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> Examine Output</h3>
+<p>Examine the output from the <strong>HelloInput</strong> task in the <strong>easy-puzzle-solved</strong> workflow</p>
+<p><img src="01-introduction_files/figure-html/1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_129.png" width="100%" /></p>
+</div>
+<div id="watch-video" class="section level3" number="1.2.5">
+<h3><span class="header-section-number">1.2.5</span> Watch Video</h3>
+<p>See the following video for more details</p>
+<iframe src="https://drive.google.com/file/d/1SpAulGEVytjpBwctmqGIM3N00vvlz1W3/preview" width="640" height="360" allow="autoplay">
+</iframe>
+<p>You can view and download the Google Slides <a href="https://docs.google.com/presentation/d/1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw">here</a>.</p>
+
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="review-workflows-on-anvil-powered-by-terra.html#cb3-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">out.width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="import-and-configure-workflows.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

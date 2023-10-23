@@ -1,0 +1,67 @@
+
+```r
+knitr::opts_chunk$set(out.width = "100%")
+```
+
+# Review Workflows on AnVIL-powered-by-Terra
+
+This **review** chapter introduces several basic concepts for working with WDL Workflows.
+The first part highlights considerations when using Docker container technology and provides an overview of the main sections in an example WDL workflow.
+The second part reviews how to run a basic workflow on AnVIL-powered-by-Terra.
+
+You can skip to Chapter 2 if you are already familiar with these topics (e.g., if you’ve successfully completed the “[Intro to workflows on Terra](https://leanpub.com/universities/courses/terra/pipelining)” Leanpub course or have run a workflow before).
+
+**Learning Objectives**
+
+1. Identify the four parts of WDL workflows on AnVIL-powered-by-Terra
+1. Understand how Docker improves reproducibility
+1. Overview of basic WDL syntax
+1. Know how to find and configure Workflows
+1. Import a WDL by cloning a Workspace
+1. Run a workflow using AnVIL-powered-by-Terra
+1. Examine a workflow’s output
+
+## Optional: What is a workflow?
+
+<iframe src="https://drive.google.com/file/d/1zVHjpR59dlF1NvGxWf88NIkvFuDDd3IW/preview" width="640" height="360" allow="autoplay"></iframe>
+
+These slides are adapted from the [WDL 101 Workshop](https://support.terra.bio/hc/en-us/articles/8693717360411) (see [this Bioinformática UFMG presentation](https://zenodo.org/record/7062397#.YyM-vy1h1qu) for more information).
+You can view and download the Google Slides [here](https://docs.google.com/presentation/d/1Dioe_Qd3hdJ0UAP4LA6gJsm07Lr1wRpax5FLYr6xU3M).
+
+## Optional: Running a workflow on AnVIL-powered-by-Terra
+
+This optional exercise provides a review of how to run a workflow on AnVIL-powered-by-Terra.
+It uses the fun and accessible [WDL puzzles](https://support.terra.bio/hc/en-us/articles/360056599991) workspace to run a “Hello, World!” style workflow.
+By showcasing how input parameters are specified and where output files can be found, this exercise helps provide context before writing your own WDL Workflow.
+
+### Clone Workspace
+
+Clone the [WDL-puzzles](https://app.terra.bio/#workspaces/help-gatk/WDL-puzzles) workspace
+
+<img src="01-introduction_files/figure-html//1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_33.png" width="100%" />
+
+### View WDL
+
+View the **easy-puzzle-solved** WDL script by opening the workflow in the Broad Methods Repository
+
+<img src="01-introduction_files/figure-html//1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_58.png" width="100%" />
+
+### Configure Workflow
+
+Configure and run the **easy-puzzle-solved** workflow
+
+<img src="01-introduction_files/figure-html//1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_73.png" width="100%" />
+
+### Examine Output
+
+Examine the output from the **HelloInput** task in the **easy-puzzle-solved** workflow
+
+<img src="01-introduction_files/figure-html//1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_129.png" width="100%" />
+
+### Watch Video
+
+See the following video for more details
+
+<iframe src="https://drive.google.com/file/d/1SpAulGEVytjpBwctmqGIM3N00vvlz1W3/preview" width="640" height="360" allow="autoplay"></iframe>
+
+You can view and download the Google Slides [here](https://docs.google.com/presentation/d/1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw).
