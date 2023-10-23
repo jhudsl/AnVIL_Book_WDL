@@ -1,0 +1,10 @@
+name	homepage	html_url	description	topics
+AnVIL_Book_Getting_Started	https://jhudatascience.org/AnVIL_Book_Getting_Started	https://github.com/jhudsl/AnVIL_Book_Getting_Started	A guide for getting started using AnVIL 	anvil, cloud-computing
+AnVIL_Book_Instructor_Guide	https://jhudatascience.org/AnVIL_Book_Instructor_Guide	https://github.com/jhudsl/AnVIL_Book_Instructor_Guide	A guide for instructors using AnVIL for workshops, lessons, or courses.	anvil, education
+AnVIL_Phylogenetic-Techniques	https://jhudatascience.org/AnVIL_Phylogenetic-Techniques/	https://github.com/jhudsl/AnVIL_Phylogenetic-Techniques	A semester-long course on the basics of molecular phylogenetic techniques	anvil
+AnVIL_Template	https://jhudatascience.org/AnVIL_Template/	https://github.com/jhudsl/AnVIL_Template	An OTTR spinoff template for creating AnVIL content	anvil, template
+GDSCN_Book_SARS_Galaxy_on_AnVIL	https://jhudatascience.org/GDSCN_Book_SARS_Galaxy_on_AnVIL/	https://github.com/jhudsl/GDSCN_Book_SARS_Galaxy_on_AnVIL	Lab module and lectures for variant detection in SARS-CoV-2 using Galaxy	anvil, genomics, module
+GDSCN_Book_Statistics_for_Genomics_Differential_Expression	https://jhudatascience.org/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/	https://github.com/jhudsl/GDSCN_Book_Statistics_for_Genomics_Differential_Expression	A set of lab modules for an introduction to differential gene expression	anvil, cloud-computing, gene-expression
+GDSCN_Book_Statistics_for_Genomics_PCA	https://jhudatascience.org/GDSCN_Book_Statistics_for_Genomics_PCA/	https://github.com/jhudsl/GDSCN_Book_Statistics_for_Genomics_PCA	A set of lab modules for PCA analysis	anvil
+GDSCN_Book_Statistics_for_Genomics_RNA-seq	https://jhudatascience.org/GDSCN_Book_Statistics_for_Genomics_RNA-seq/	https://github.com/jhudsl/GDSCN_Book_Statistics_for_Genomics_RNA-seq	A set of lab modules for RNA-seq analysis	anvil
+GDSCN_Book_Statistics_for_Genomics_scRNA-seq	http://jhudatascience.org/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/	https://github.com/jhudsl/GDSCN_Book_Statistics_for_Genomics_scRNA-seq	A set of lab modules for single cell RNA-seq analysis	anvil
