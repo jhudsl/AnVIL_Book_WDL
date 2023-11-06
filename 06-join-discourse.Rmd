@@ -1,4 +1,4 @@
-```{r}
+```{r, echo = FALSE}
 knitr::opts_chunk$set(out.width = "100%")
 ```
 
