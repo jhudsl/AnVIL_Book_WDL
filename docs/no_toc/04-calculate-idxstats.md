@@ -1,7 +1,4 @@
 
-```r
-knitr::opts_chunk$set(out.width = "100%")
-```
 
 # Calculate idxstats on multiple files
 

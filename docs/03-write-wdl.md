@@ -1,7 +1,4 @@
 
-```r
-knitr::opts_chunk$set(out.width = "100%")
-```
 
 # Write WDL
 
