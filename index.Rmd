@@ -53,3 +53,4 @@ Due to differences in branding, some of the screenshots shown in this course may
 ## AnVIL Collection {-}
 
 Please check out our full collection of AnVIL and related resources: https://hutchdatascience.org/AnVIL_Collection/
+
