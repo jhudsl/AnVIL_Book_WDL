@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Review Workflows on AnVIL-powered-by-Terra | WDL Workflows</title>
   <meta name="description" content="Description about Course/Book." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Review Workflows on AnVIL-powered-by-Terra | WDL Workflows" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Description about Course/Book." />
   
@@ -23,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-11-15" />
+<meta name="date" content="2025-01-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +31,6 @@
   <link rel="shortcut icon" href="assets/AnVIL_style/anvil_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="index.html"/>
 <link rel="next" href="import-and-configure-workflows.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -90,11 +89,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
+code span.at { color: #204a87; } /* Attribute */
 code span.bn { color: #0000cf; } /* BaseN */
 code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
+code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #8f5902; font-style: italic; } /* Comment */
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -103,14 +102,14 @@ code span.dv { color: #0000cf; } /* DecVal */
 code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
 code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
 code span.ot { color: #8f5902; } /* Other */
 code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
 code span.ss { color: #4e9a06; } /* SpecialString */
 code span.st { color: #4e9a06; } /* String */
 code span.va { color: #000000; } /* Variable */
@@ -118,6 +117,10 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 <link rel="stylesheet" href="assets/AnVIL_style/anvil.css" type="text/css" />
@@ -219,10 +222,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
-<p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
-<a href="https://hutchdatascience.org/" target="_blank"><img src="https://raw.githubusercontent.com/jhudsl/OTTR_Template/main/style-sets/fhdasl/copy_to_assets/big-dasl-stacked.png" style="width: 80%; padding-left: 34px; padding-top: 8px;"</a>
+<p style="text-align:center;"> <a href="http://jhudatascience.org/"> The Johns Hopkins Data Science Lab </a></p>
+<a href="http://jhudatascience.org/"><img src="https://jhudatascience.org/images/dasl.png" style=" width: 80%; padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
 <p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
-<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/AK12iVXTjsB7yCUUA"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span><a href="https://docs.google.com/forms/d/e/1FAIpQLScrDVb_utm55pmb_SHx-RgELTEbCCWdLea0T3IzS0Oj00GE4w/viewform?usp=pp_url&entry.1565230805=WDL+Workflows"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+
 </ul>
 
       </nav>
@@ -251,8 +255,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/AnVIL_style/dasl_thin_main_image.png">
 </div>
-<div id="review-workflows-on-anvil-powered-by-terra" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Review Workflows on AnVIL-powered-by-Terra</h1>
+<div id="review-workflows-on-anvil-powered-by-terra" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Review Workflows on AnVIL-powered-by-Terra<a href="review-workflows-on-anvil-powered-by-terra.html#review-workflows-on-anvil-powered-by-terra" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>This <strong>review</strong> chapter introduces several basic concepts for working with WDL Workflows.
 The first part highlights considerations when using Docker container technology and provides an overview of the main sections in an example WDL workflow.
 The second part reviews how to run a basic workflow on AnVIL-powered-by-Terra.</p>
@@ -267,40 +271,40 @@ The second part reviews how to run a basic workflow on AnVIL-powered-by-Terra.</
 <li>Run a workflow using AnVIL-powered-by-Terra</li>
 <li>Examine a workflow’s output</li>
 </ol>
-<div id="optional-what-is-a-workflow" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Optional: What is a workflow?</h2>
+<div id="optional-what-is-a-workflow" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Optional: What is a workflow?<a href="review-workflows-on-anvil-powered-by-terra.html#optional-what-is-a-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <iframe src="https://drive.google.com/file/d/1zVHjpR59dlF1NvGxWf88NIkvFuDDd3IW/preview" width="640" height="360" allow="autoplay">
 </iframe>
 <p>These slides are adapted from the <a href="https://support.terra.bio/hc/en-us/articles/8693717360411">WDL 101 Workshop</a> (see <a href="https://zenodo.org/record/7062397#.YyM-vy1h1qu">this Bioinformática UFMG presentation</a> for more information).
 You can view and download the Google Slides <a href="https://docs.google.com/presentation/d/1Dioe_Qd3hdJ0UAP4LA6gJsm07Lr1wRpax5FLYr6xU3M">here</a>.</p>
 </div>
-<div id="optional-running-a-workflow-on-anvil-powered-by-terra" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Optional: Running a workflow on AnVIL-powered-by-Terra</h2>
+<div id="optional-running-a-workflow-on-anvil-powered-by-terra" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Optional: Running a workflow on AnVIL-powered-by-Terra<a href="review-workflows-on-anvil-powered-by-terra.html#optional-running-a-workflow-on-anvil-powered-by-terra" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This optional exercise provides a review of how to run a workflow on AnVIL-powered-by-Terra.
 It uses the fun and accessible <a href="https://support.terra.bio/hc/en-us/articles/360056599991">WDL puzzles</a> workspace to run a “Hello, World!” style workflow.
 By showcasing how input parameters are specified and where output files can be found, this exercise helps provide context before writing your own WDL Workflow.</p>
-<div id="clone-workspace" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Clone Workspace</h3>
+<div id="clone-workspace" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Clone Workspace<a href="review-workflows-on-anvil-powered-by-terra.html#clone-workspace" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Clone the <a href="https://app.terra.bio/#workspaces/help-gatk/WDL-puzzles">WDL-puzzles</a> workspace</p>
 <p><img src="01-introduction_files/figure-html/1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_33.png" width="100%" /></p>
 </div>
-<div id="view-wdl" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> View WDL</h3>
+<div id="view-wdl" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> View WDL<a href="review-workflows-on-anvil-powered-by-terra.html#view-wdl" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>View the <strong>easy-puzzle-solved</strong> WDL script by opening the workflow in the Broad Methods Repository</p>
 <p><img src="01-introduction_files/figure-html/1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_58.png" width="100%" /></p>
 </div>
-<div id="configure-workflow" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> Configure Workflow</h3>
+<div id="configure-workflow" class="section level3 hasAnchor" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Configure Workflow<a href="review-workflows-on-anvil-powered-by-terra.html#configure-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Configure and run the <strong>easy-puzzle-solved</strong> workflow</p>
 <p><img src="01-introduction_files/figure-html/1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_73.png" width="100%" /></p>
 </div>
-<div id="examine-output" class="section level3" number="1.2.4">
-<h3><span class="header-section-number">1.2.4</span> Examine Output</h3>
+<div id="examine-output" class="section level3 hasAnchor" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> Examine Output<a href="review-workflows-on-anvil-powered-by-terra.html#examine-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Examine the output from the <strong>HelloInput</strong> task in the <strong>easy-puzzle-solved</strong> workflow</p>
 <p><img src="01-introduction_files/figure-html/1FbTgCnAZTgVzp-lPwOVqOqU4Kw19nu825dMngfyc-Nw_g1559ae65d17_0_129.png" width="100%" /></p>
 </div>
-<div id="watch-video" class="section level3" number="1.2.5">
-<h3><span class="header-section-number">1.2.5</span> Watch Video</h3>
+<div id="watch-video" class="section level3 hasAnchor" number="1.2.5">
+<h3><span class="header-section-number">1.2.5</span> Watch Video<a href="review-workflows-on-anvil-powered-by-terra.html#watch-video" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>See the following video for more details</p>
 <iframe src="https://drive.google.com/file/d/1SpAulGEVytjpBwctmqGIM3N00vvlz1W3/preview" width="640" height="360" allow="autoplay">
 </iframe>

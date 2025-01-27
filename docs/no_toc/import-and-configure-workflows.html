@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Import and Configure Workflows | WDL Workflows</title>
   <meta name="description" content="Description about Course/Book." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Import and Configure Workflows | WDL Workflows" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Description about Course/Book." />
   
@@ -23,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-11-15" />
+<meta name="date" content="2025-01-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +31,6 @@
   <link rel="shortcut icon" href="assets/AnVIL_style/anvil_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="review-workflows-on-anvil-powered-by-terra.html"/>
 <link rel="next" href="write-wdl.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -90,11 +89,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
+code span.at { color: #204a87; } /* Attribute */
 code span.bn { color: #0000cf; } /* BaseN */
 code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
+code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #8f5902; font-style: italic; } /* Comment */
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -103,14 +102,14 @@ code span.dv { color: #0000cf; } /* DecVal */
 code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
 code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
 code span.ot { color: #8f5902; } /* Other */
 code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
 code span.ss { color: #4e9a06; } /* SpecialString */
 code span.st { color: #4e9a06; } /* String */
 code span.va { color: #000000; } /* Variable */
@@ -118,6 +117,10 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 <link rel="stylesheet" href="assets/AnVIL_style/anvil.css" type="text/css" />
@@ -219,10 +222,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
-<p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
-<a href="https://hutchdatascience.org/" target="_blank"><img src="https://raw.githubusercontent.com/jhudsl/OTTR_Template/main/style-sets/fhdasl/copy_to_assets/big-dasl-stacked.png" style="width: 80%; padding-left: 34px; padding-top: 8px;"</a>
+<p style="text-align:center;"> <a href="http://jhudatascience.org/"> The Johns Hopkins Data Science Lab </a></p>
+<a href="http://jhudatascience.org/"><img src="https://jhudatascience.org/images/dasl.png" style=" width: 80%; padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
 <p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
-<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/AK12iVXTjsB7yCUUA"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span><a href="https://docs.google.com/forms/d/e/1FAIpQLScrDVb_utm55pmb_SHx-RgELTEbCCWdLea0T3IzS0Oj00GE4w/viewform?usp=pp_url&entry.1565230805=WDL+Workflows"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+
 </ul>
 
       </nav>
@@ -251,8 +255,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/AnVIL_style/dasl_thin_main_image.png">
 </div>
-<div id="import-and-configure-workflows" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Import and Configure Workflows</h1>
+<div id="import-and-configure-workflows" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Import and Configure Workflows<a href="import-and-configure-workflows.html#import-and-configure-workflows" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>This chapter describes how to import publicly available WDL workflows and their associated configuration files.
 In addition to covering the growing <a href="https://dockstore.org">Dockstore</a> community — which implements and helps drive forward <a href="https://www.ga4gh.org">GA4GH</a> standards — we cover the <a href="https://portal.firecloud.org/#methods">Broad Methods Repository</a>, which provides several convenient features if this is your first time developing WDL Workflows in the Cloud (see Chapter 3 for more details).</p>
 <p><strong>Learning Objectives</strong></p>
@@ -260,8 +264,8 @@ In addition to covering the growing <a href="https://dockstore.org">Dockstore</a
 <li>Understand how to import workflows from Dockstore and the Broad Methods Repository</li>
 <li>Understand the role that JSON files play in configuring imported workflows, and how to select a configuration for your workflow</li>
 </ul>
-<div id="importing-workflows-into-anvil-powered-by-terra" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Importing workflows into AnVIL-powered-by-Terra</h2>
+<div id="importing-workflows-into-anvil-powered-by-terra" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Importing workflows into AnVIL-powered-by-Terra<a href="import-and-configure-workflows.html#importing-workflows-into-anvil-powered-by-terra" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Chapter 1’s review exercise covers how to run a workflow that was included in a cloned AnVIL-powered-by-Terra workspace. But what if you want to add a new workflow into your workspace, without writing it yourself?</p>
 <p>There are three ways to import workflows into an AnVIL-powered-by-Terra workspace:</p>
 <ul>
@@ -269,8 +273,8 @@ In addition to covering the growing <a href="https://dockstore.org">Dockstore</a
 <li>Broad Methods Repository</li>
 <li>Other online collections</li>
 </ul>
-<div id="dockstore" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Dockstore</h3>
+<div id="dockstore" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Dockstore<a href="import-and-configure-workflows.html#dockstore" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><a href="https://dockstore.org">Dockstore</a> is an app store for bioinformatics tools, including workflows. It provides an easy interface for finding and running workflows on AnVIL-powered-by-Terra.</p>
 <p>Complete the following steps to practice importing a workflow from Dockstore:</p>
 <p>Use the instructions in <a href="https://support.terra.bio/hc/en-us/articles/360038137292#heading-1">Step 1 of “How to import a workflow and its parameter file from Dockstore into Terra”</a> to find the Optimus workflow (search for WARP/Optimus).</p>
@@ -278,23 +282,23 @@ In addition to covering the growing <a href="https://dockstore.org">Dockstore</a
 <p><img src="02-import-configure_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_5.png" width="100%" /></p>
 <p>Finally, follow the instructions in <a href="https://support.terra.bio/hc/en-us/articles/360038137292#heading-2">Step 2</a> to export the workflow to your cloned version of the WDL-puzzles workspace.</p>
 </div>
-<div id="broad-methods-repository" class="section level3" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Broad Methods Repository</h3>
+<div id="broad-methods-repository" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Broad Methods Repository<a href="import-and-configure-workflows.html#broad-methods-repository" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Broad Methods Repository contains a collection of pre-written workflows that can be run on AnVIL-powered-by-Terra. Notably, the Repository provides a web-based WDL editor, making it easy to create and modify workflows in the Cloud. Follow <a href="https://support.terra.bio/hc/en-us/articles/360025674392-Finding-the-workflow-method-you-need-and-its-JSON-in-the-Methods-Repository">these instructions</a> to open the Broad Methods Repository, find an interesting workflow, and export it to your workspace.</p>
 </div>
-<div id="other-online-collections" class="section level3" number="2.1.3">
-<h3><span class="header-section-number">2.1.3</span> Other online collections</h3>
+<div id="other-online-collections" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Other online collections<a href="import-and-configure-workflows.html#other-online-collections" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>WDL is a widely-used tool, and WDL workflows are publicly available through other sources beyond Dockstore and the Broad Methods Repository. These include <a href="https://broadinstitute.github.io/warp">WARP</a>, <a href="https://www.encodeproject.org/pipelines">ENCODE</a>, the <a href="https://gatk.broadinstitute.org/hc/en-us">Genome Analysis Toolkit</a>, and <a href="https://github.com">GitHub</a>. Note that exporting workflows from these sources is a two-step process: first, copy the workflow’s script to a new method in the Broad Methods Repository (see Chapter 3) or a Dockstore repository. Then, export the workflow to an AnVIL-powered-by-Terra workspace.</p>
 </div>
 </div>
-<div id="configuring-workflows-with-json-files" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Configuring workflows with JSON files</h2>
+<div id="configuring-workflows-with-json-files" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Configuring workflows with JSON files<a href="import-and-configure-workflows.html#configuring-workflows-with-json-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To run a workflow in AnVIL-powered-by-Terra, you need to specify its inputs and outputs. You can do this by hand, filling in the workflow’s configuration each time you run it. But if your workflow’s inputs are reusable across workflow submissions – for example, if you always expect to run the workflow on a column named “bam” in your data table – it’s faster and less error-prone to pre-configure your workflow.</p>
 <p>To pre-configure a workflow, you can upload a file that specifies the default values for some set of your workflow’s inputs. JSON is the most common format for this configuration file. AnVIL-powered-by-Terra will automatically fill these values into the workflow configuration form. If necessary. you can always change these values when running the workflow.</p>
 <p><img src="02-import-configure_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_12.png" width="100%" /></p>
 <p><img src="02-import-configure_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_18.png" width="100%" /></p>
-<div id="optional-practice-pre-configure-a-workflow" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Optional practice: pre-configure a workflow</h3>
+<div id="optional-practice-pre-configure-a-workflow" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Optional practice: pre-configure a workflow<a href="import-and-configure-workflows.html#optional-practice-pre-configure-a-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To pre-configure a workflow that you have imported to your workspace, upload a JSON file.</p>
 <p>An easy way to do this is to download a JSON file from an existing workflow, edit it, and upload the edited version to the workflow that you’re trying to configure.</p>
 <p>To practice this, open the <strong>easy-puzzle-solved</strong> workflow in your clone of the WDL-puzzles workspace and download the JSON file:</p>
@@ -305,24 +309,24 @@ In addition to covering the growing <a href="https://dockstore.org">Dockstore</a
 <p><img src="02-import-configure_files/figure-html/1o2XnuMbqWVLf4XrsXolIQ7ulfnMlpJlrUxN0Y8aLIVQ_g24c8ed805a1_1_30.png" width="100%" /></p>
 <p>The input for the “name” variable should now be set to your name. Be sure to <strong>click Save</strong> to ensure that this change persists the next time you open the workflow.</p>
 </div>
-<div id="a-few-notes-on-syntax" class="section level3" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> A few notes on syntax</h3>
+<div id="a-few-notes-on-syntax" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> A few notes on syntax<a href="import-and-configure-workflows.html#a-few-notes-on-syntax" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you’re configuring multiple inputs, specify them like this:</p>
 <pre><code>{&quot;taskName.variableName1&quot;:&quot;attribute1&quot;, &quot;taskName.variableName2&quot;:&quot;attribute2&quot;}</code></pre>
 <p>If your inputs will come from a data table, specify them like this:</p>
 <pre><code>{&quot;taskName.variableName&quot;:&quot;${this.columnName}&quot;}</code></pre>
 </div>
-<div id="importing-a-pre-configured-workflow" class="section level3" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Importing a pre-configured workflow</h3>
+<div id="importing-a-pre-configured-workflow" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Importing a pre-configured workflow<a href="import-and-configure-workflows.html#importing-a-pre-configured-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In some cases, the workflow’s authors have provided a configuration file, and you can export this file to AnVIL-powered-by-Terra along with the workflow, rather than uploading the JSON file yourself. See <a href="https://support.terra.bio/hc/en-us/articles/360038137292">How to import a workflow and its parameter file from Dockstore into Terra</a> and <a href="https://support.terra.bio/hc/en-us/articles/360031366091">Create, edit, and share a new workflow</a> (steps 1.6-1.7) for instructions on how to do this for a workflow in Dockstore or the Broad Methods Repository.</p>
 </div>
-<div id="more-information" class="section level3" number="2.2.4">
-<h3><span class="header-section-number">2.2.4</span> More information</h3>
+<div id="more-information" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> More information<a href="import-and-configure-workflows.html#more-information" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To learn more about how to configure a workflow’s inputs through the UI, see <a href="https://support.terra.bio/hc/en-us/articles/4415971884827">How to configure workflow inputs</a>. For more detail on how to use JSON files to pre-configure a workflow, read <a href="https://support.terra.bio/hc/en-us/articles/360027735471">Getting workflows up and running faster with JSONs</a>.</p>
 </div>
 </div>
-<div id="further-reading" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Further Reading</h2>
+<div id="further-reading" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Further Reading<a href="import-and-configure-workflows.html#further-reading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If you’re interested in a deeper dive into this chapter’s topics, check out these optional articles:</p>
 <ul>
 <li>For more information on how to monitor your workflow, read <a href="https://support.terra.bio/hc/en-us/articles/7093972754971">What to expect when you submit a workflow</a>.</li>
