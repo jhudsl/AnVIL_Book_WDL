@@ -1,10 +1,10 @@
 url	chapt_title	img_path
-https://jhudatascience.org/AnVIL_Book_WDL/no_toc/index.html	Overview	resources/chapt_screen_images/index.png
-https://jhudatascience.org/AnVIL_Book_WDL/no_toc/review-workflows-on-anvil-powered-by-terra.html	1 Review Workflows on AnVIL-powered-by-Terra	resources/chapt_screen_images/review-workflows-on-anvil-powered-by-terra.png
-https://jhudatascience.org/AnVIL_Book_WDL/no_toc/import-and-configure-workflows.html	2 Import and Configure Workflows	resources/chapt_screen_images/import-and-configure-workflows.png
-https://jhudatascience.org/AnVIL_Book_WDL/no_toc/write-wdl.html	3 Write WDL	resources/chapt_screen_images/write-wdl.png
-https://jhudatascience.org/AnVIL_Book_WDL/no_toc/calculate-idxstats-on-multiple-files.html	4 Calculate idxstats on multiple files	resources/chapt_screen_images/calculate-idxstats-on-multiple-files.png
-https://jhudatascience.org/AnVIL_Book_WDL/no_toc/customize-docker.html	5 Customize Docker	resources/chapt_screen_images/customize-docker.png
-https://jhudatascience.org/AnVIL_Book_WDL/no_toc/join-discourse.html	6 Join Discourse	resources/chapt_screen_images/join-discourse.png
-https://jhudatascience.org/AnVIL_Book_WDL/no_toc/about-the-authors.html	About the Authors	resources/chapt_screen_images/about-the-authors.png
-https://jhudatascience.org/AnVIL_Book_WDL/no_toc/references.html	References	resources/chapt_screen_images/references.png
+https://jhudatascience.org/AnVIL_Book_WDL/index.html	Overview	resources/chapt_screen_images/index.png
+https://jhudatascience.org/AnVIL_Book_WDL/review-workflows-on-anvil-powered-by-terra.html	1 Review Workflows on AnVIL-powered-by-Terra	resources/chapt_screen_images/review-workflows-on-anvil-powered-by-terra.png
+https://jhudatascience.org/AnVIL_Book_WDL/import-and-configure-workflows.html	2 Import and Configure Workflows	resources/chapt_screen_images/import-and-configure-workflows.png
+https://jhudatascience.org/AnVIL_Book_WDL/write-wdl.html	3 Write WDL	resources/chapt_screen_images/write-wdl.png
+https://jhudatascience.org/AnVIL_Book_WDL/calculate-idxstats-on-multiple-files.html	4 Calculate idxstats on multiple files	resources/chapt_screen_images/calculate-idxstats-on-multiple-files.png
+https://jhudatascience.org/AnVIL_Book_WDL/customize-docker.html	5 Customize Docker	resources/chapt_screen_images/customize-docker.png
+https://jhudatascience.org/AnVIL_Book_WDL/join-discourse.html	6 Join Discourse	resources/chapt_screen_images/join-discourse.png
+https://jhudatascience.org/AnVIL_Book_WDL/about-the-authors.html	About the Authors	resources/chapt_screen_images/about-the-authors.png
+https://jhudatascience.org/AnVIL_Book_WDL/references.html	References	resources/chapt_screen_images/references.png
