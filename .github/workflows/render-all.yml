@@ -67,7 +67,7 @@ jobs:
       - name: Set up feedback link
         if: ${{needs.yaml-check.outputs.toggle_feedback_link == 'yes'}}
         run: |
-          bash scripts/AnVIL_Feedback_Script.sh
+          bash .github/AnVIL_Feedback_Script.sh
           git add _output.yml
           git commit -m 'Set up feedback link' || echo "No changes to commit"
 
