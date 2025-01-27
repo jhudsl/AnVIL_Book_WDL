@@ -1,6 +1,6 @@
 ---
 title: "WDL Workflows"
-date: "November 15, 2023"
+date: "January 27, 2025"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -14,7 +14,7 @@ output:
 ---
 
 
-```r
+``` r
 knitr::opts_chunk$set(out.width = "100%")
 ```
 
@@ -52,3 +52,4 @@ Due to differences in branding, some of the screenshots shown in this course may
 ## AnVIL Collection {-}
 
 Please check out our full collection of AnVIL and related resources: https://hutchdatascience.org/AnVIL_Collection/
+
