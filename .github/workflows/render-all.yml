@@ -31,6 +31,7 @@ jobs:
       toggle_website: "${{ env.RENDER_WEBSITE }}"
       toggle_coursera: "${{ env.RENDER_COURSERA }}"
       toggle_leanpub: "${{ env.RENDER_LEANPUB }}"
+      make_book_txt: "${{ env.MAKE_BOOK_TXT }}"
       toggle_feedback_link: "${{ env.FEEDBACK_LINK }}"
       toggle_student_guide: "${{ env.RENDER_STUDENT_GUIDE }}"
       rendering_docker_image: "${{ env.RENDERING_DOCKER_IMAGE }}"
@@ -230,8 +231,8 @@ jobs:
       - name: Run ottrpal::bookdown_to_embed_leanpub
         if: ${{ needs.yaml-check.outputs.toggle_quiz_check == 'no'}}
         run: |
-          echo needs.yaml-check.outputs.toggle_make_book_txt == 'yes'
-          echo needs.yaml-check.outputs.toggle_make_book_txt
+          echo needs.yaml-check.outputs.make_book_txt == 'yes'
+          echo needs.yaml-check.outputs.make_book_txt
           Rscript -e "ottrpal::bookdown_to_embed_leanpub(
             render = FALSE, \
             chapt_img_key = 'resources/chapt_screen_images/chapter_urls.tsv', \
@@ -241,6 +242,8 @@ jobs:
       - name: Run ottrpal::bookdown_to_embed_leanpub
         if: ${{ needs.yaml-check.outputs.toggle_quiz_check == 'yes'}}
         run: |
+          echo needs.yaml-check.outputs.make_book_txt == 'yes'
+          echo needs.yaml-check.outputs.make_book_txt
           Rscript -e "ottrpal::bookdown_to_embed_leanpub(
             render = FALSE, \
             chapt_img_key = 'resources/chapt_screen_images/chapter_urls.tsv', \
