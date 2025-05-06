@@ -30,7 +30,7 @@ render-coursera: no
 make-book-txt: yes
 
 ##### Rendering of student guide (if applicable)
-render-student-guide: no
+render-student-guide: yes
 
 ##### Auto-generate a feedback link for the AnVIL Feedback Form: https://docs.google.com/forms/d/e/1FAIpQLScrDVb_utm55pmb_SHx-RgELTEbCCWdLea0T3IzS0Oj00GE4w/viewform
 feedback-link: yes
