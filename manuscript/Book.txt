@@ -1,0 +1,10 @@
+1-Review-Workflows-on-AnVIL-powered-by-Terra.md
+quiz_ch1.md
+2-Import-and-Configure-Workflows.md
+3-Write-WDL.md
+4-Calculate-idxstats-on-multiple-files.md
+5-Customize-Docker.md
+6-Join-Discourse.md
+Overview.md
+About-the-Authors.md
+References.md
